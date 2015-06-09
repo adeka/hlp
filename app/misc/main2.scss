@@ -1,0 +1,227 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+#index2{
+
+  //$accentColor: rgb(141, 200, 93);
+  //$accentColor: rgb(255, 200, 93);
+  $accentColor: rgb(77, 117, 205);
+  $light: white;
+  $dark: black;
+
+  @mixin grad(){
+    @include gradient-vertical(darken($accentColor, 5%),darken($accentColor, 15%), 0%, 100%);
+  }
+
+  @mixin transition(){
+    transition: all 150ms cubic-bezier(0.420, 0.000, 0.580, 1.000); /* ease-in-out */
+  }
+
+  html *{
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+
+  }
+
+  body{
+    //background-image: url("/images/beach.jpg");
+    background-size: 1920px 1080px;
+    background-position: center -100px;
+    background-attachment: fixed;
+    background-color: transparentize(desaturate($accentColor, 20%), .4);
+    background-blend-mode: lighten;
+    color: #000;
+  }
+
+
+  /* Custom page header */
+  .header {
+    margin: 0;
+    padding: 0;
+    background: $dark;
+    height: 5em;
+    img{
+      margin: 1em;
+      float:left;
+      width: 250px;
+    }
+    .navButton{
+      margin: 0;
+      color:$light;
+      height: 5em;
+      padding-top: 1.75em;
+      width: 130px;
+      text-align:center;
+      float: right;
+      &:hover{
+        @include grad();
+        color: black;
+      }
+      cursor: pointer;
+    }
+
+    .contact{
+      @include grad();
+      color: black;
+    }
+  }
+
+  .headline{
+    background: transparentize(white, .3);
+    padding:.5em;
+    text-align: center;
+    font-size: 3em;
+    box-shadow: 0px 10px 30px 0px rgba(0,0,0, 0.15);
+  }
+
+  /*
+  .cta-photo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .cta-blurb {
+    position: relative;
+    width: 100%;
+    color: $dark;
+    background-color: transparentize($accentColor, .5);
+    padding: 1em;
+    z-index: 1000;
+  }
+  */
+
+  .assetSummary{
+    font-size: 1.25em;
+    margin:1em;
+    margin-right:.5em;
+    padding:2em;
+    border-radius: .3em;
+    @include gradient-vertical(transparentize($light, .3),transparentize($light, .6), 0%, 100%);
+
+    //background: transparentize($light, .4);
+    p{
+      text-indent: 2em;
+    }
+    img{
+      box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
+      border-radius: .2em;
+      width: 100%;
+      margin: 0;
+    }
+    .blurbContainer{
+      position: relative;
+      width: 100%;
+      height: auto;
+      margin-bottom: 1em;
+    }
+    .blurb {
+      color: $dark;
+      background-color: transparentize($accentColor, .3);
+      padding: 1em;
+      z-index: 1000;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      border-top: 3px solid darken($accentColor, 25%);
+      border-bottom: 3px solid darken($accentColor, 25%);
+    }
+  }
+
+  .signup{
+    @include gradient-vertical(darken($light, 0%),darken($light, 18%), 0%, 100%);
+    padding: 0;
+    margin-top: 1.3em;
+    border-radius: .3em;
+    form{
+      padding: 0;
+      margin: 0;
+    }
+    h2{
+      text-align:center;
+      margin: 0;
+      padding: 1em;
+      @include grad();
+      border-top-left-radius: .3rem;
+      border-top-right-radius: .3rem;
+    }
+    .pull-right {
+      float: none !important;
+    }
+    button{
+      float: none;
+      cursor: pointer;
+      color: $accentColor;
+      padding-left:.75em;
+      padding-right:.75em;
+      padding-top:.5em;
+      padding-bottom:.5em;
+      font-size: 1.5em;
+      background: $dark;
+      margin: 0 auto;
+      border: none;
+      border-radius: .2em;
+      @include transition();
+      &:hover{
+        background: lighten($dark, 10%);
+        color: $light;
+      }
+    }
+    .br-native-form{
+      text-align:center;
+      padding:1em;
+      padding-top: 0;
+    }
+    p{
+      margin-bottom: 1em;
+    }
+    label{
+      padding: .25em;
+    }
+    input{
+      box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
+      border: none;
+      padding: .25em;
+      padding-left: .5em;
+    }
+  }
+
+  /* Custom page footer */
+  .footer {
+
+    overflow: auto;
+    box-sizing: border-box;
+    border-radius: .25em;
+    margin-top: 1em;
+    padding: 1em;
+    color: $light;
+    @include gradient-vertical(transparentize($dark, .85),transparentize($dark, .8), 0%, 100%);
+    div{
+      cursor: pointer;
+      width: 420px;
+      overflow: auto;
+      margin: 0 auto;
+      text-align:center;
+    }
+    i{
+      border-radius: .5rem;
+      font-size: 2em;
+      float: left;
+      padding: 1em;
+      @include transition();
+      &:hover{
+        background: transparentize($light, .85);
+      }
+    }
+  }
+
+  /* Responsive: Portrait tablets and up */
+  @media screen and (min-width: 600px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+}

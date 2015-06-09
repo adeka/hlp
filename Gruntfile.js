@@ -49,12 +49,12 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= config.app %>/misc/{,*/}*.{scss,sass}'],
         tasks: ['sass:server', 'autoprefixer']
       },
-      styles: {
-        files: ['<%= config.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
+      misc: {
+        files: ['<%= config.app %>/misc/{,*/}*.css'],
+        tasks: ['newer:copy:misc', 'autoprefixer']
       },
       livereload: {
         options: {
@@ -62,8 +62,8 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= config.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
-          '<%= config.app %>/images/{,*/}*'
+          '.tmp/misc/{,*/}*.css',
+          '<%= config.app %>/misc/{,*/}*'
         ]
       }
     },
@@ -157,18 +157,18 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/styles',
+          cwd: '<%= config.app %>/misc',
           src: ['*.{scss,sass}'],
-          dest: '.tmp/styles',
+          dest: '.tmp/misc',
           ext: '.css'
         }]
       },
       server: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/styles',
+          cwd: '<%= config.app %>/misc',
           src: ['*.{scss,sass}'],
-          dest: '.tmp/styles',
+          dest: '.tmp/misc',
           ext: '.css'
         }]
       }
@@ -182,9 +182,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/styles/',
+          cwd: '.tmp/misc/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: '.tmp/misc/'
         }]
       }
     },
@@ -197,7 +197,7 @@ module.exports = function (grunt) {
         exclude: ['bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js']
       },
       sass: {
-        src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= config.app %>/misc/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     },
@@ -208,9 +208,9 @@ module.exports = function (grunt) {
         files: {
           src: [
             '<%= config.dist %>/scripts/{,*/}*.js',
-            '<%= config.dist %>/styles/{,*/}*.css',
-            '<%= config.dist %>/images/{,*/}*.*',
-            '<%= config.dist %>/styles/fonts/{,*/}*.*',
+            '<%= config.dist %>/misc/{,*/}*.css',
+            '<%= config.dist %>/misc/{,*/}*.*',
+            '<%= config.dist %>/misc/fonts/{,*/}*.*',
             '<%= config.dist %>/*.{ico,png}'
           ]
         }
@@ -232,12 +232,12 @@ module.exports = function (grunt) {
       options: {
         assetsDirs: [
           '<%= config.dist %>',
-          '<%= config.dist %>/images',
-          '<%= config.dist %>/styles'
+          '<%= config.dist %>/misc',
+          '<%= config.dist %>/misc'
         ]
       },
       html: ['<%= config.dist %>/{,*/}*.html'],
-      css: ['<%= config.dist %>/styles/{,*/}*.css']
+      css: ['<%= config.dist %>/misc/{,*/}*.css']
     },
 
     // The following *-min tasks produce minified files in the dist folder
@@ -245,9 +245,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/images',
+          cwd: '<%= config.app %>/misc',
           src: '{,*/}*.{gif,jpeg,jpg,png}',
-          dest: '<%= config.dist %>/images'
+          dest: '<%= config.dist %>/misc'
         }]
       }
     },
@@ -256,9 +256,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/images',
+          cwd: '<%= config.app %>/misc',
           src: '{,*/}*.svg',
-          dest: '<%= config.dist %>/images'
+          dest: '<%= config.dist %>/misc'
         }]
       }
     },
@@ -291,9 +291,9 @@ module.exports = function (grunt) {
     // cssmin: {
     //   dist: {
     //     files: {
-    //       '<%= config.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= config.app %>/styles/{,*/}*.css'
+    //       '<%= config.dist %>/misc/main.css': [
+    //         '.tmp/misc/{,*/}*.css',
+    //         '<%= config.app %>/misc/{,*/}*.css'
     //       ]
     //     }
     //   }
@@ -321,9 +321,9 @@ module.exports = function (grunt) {
           dest: '<%= config.dist %>',
           src: [
             '*.{ico,png,txt}',
-            'images/{,*/}*.webp',
+            'misc/{,*/}*.webp',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*'
+            'misc/fonts/{,*/}*.*'
           ]
         }, {
           src: 'node_modules/apache-server-configs/dist/.htaccess',
@@ -336,11 +336,11 @@ module.exports = function (grunt) {
           dest: '<%= config.dist %>'
         }]
       },
-      styles: {
+      misc: {
         expand: true,
         dot: true,
-        cwd: '<%= config.app %>/styles',
-        dest: '.tmp/styles/',
+        cwd: '<%= config.app %>/misc',
+        dest: '.tmp/misc/',
         src: '{,*/}*.css'
       }
     },
@@ -349,14 +349,14 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'sass:server',
-        'copy:styles'
+        'copy:misc'
       ],
       test: [
-        'copy:styles'
+        'copy:misc'
       ],
       dist: [
         'sass',
-        'copy:styles',
+        'copy:misc',
         'imagemin',
         'svgmin'
       ]
