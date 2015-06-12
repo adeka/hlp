@@ -22,9 +22,26 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  //grunt.loadNpmTasks('grunt-contrib-handlebars');
+
   // Define the configuration for all the tasks
   grunt.initConfig({
-
+    /*
+    compileHBS: {
+        options: {
+          partials: "",
+          helpers: ""
+        },
+        simpleTarget: {
+          options: {
+            json: ""
+          },
+          files: {
+            "": "test.hbs"
+          }
+        }
+    },
+    */
     // Project settings
     config: config,
 
@@ -362,7 +379,7 @@ module.exports = function (grunt) {
       ]
     }
   });
-
+  //END OF INIT config
 
   grunt.registerTask('serve', 'start the server and preview your app, --allow-remote for remote access', function (target) {
     if (grunt.option('allow-remote')) {
@@ -402,6 +419,9 @@ module.exports = function (grunt) {
     ]);
   });
 
+  grunt.registerTask('handlebars', [
+  ]);
+
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
@@ -412,7 +432,7 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'copy:dist',
-    'rev',
+    //'rev',
     'usemin',
     'htmlmin'
   ]);

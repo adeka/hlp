@@ -2,252 +2,246 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-@import "main2";
-@import "main3";
-#index1{
 
-  $accentColor: #EEA626;//rgb(141, 200, 93);
-  $mainColor: #0e704c;
-  //$accentColor: rgb(255, 200, 93);
-  $light: white;
-  $dark: black;
+$colors: (
+header: #b06,
+text: #334,
+footer: #666777
+);
+//map-get($colors, header);
+$accentColor: #EEA626;////rgb(141, 200, 93);
+$mainColor: #0e704c;
+//$accentColor: rgb(255, 200, 93);
+$light: white;
+$dark: black;
 
-  @mixin grad(){
-    @include gradient-vertical(darken($accentColor, 0%),darken($accentColor, 10%), 0%, 100%);
-  }
+@mixin grad(){
+  @include gradient-vertical(darken($accentColor, 0%),darken($accentColor, 10%), 0%, 100%);
+}
 
-  @mixin transition(){
-    transition: all 150ms cubic-bezier(0.420, 0.000, 0.580, 1.000); /* ease-in-out */
-  }
+@mixin transition(){
+  transition: all 150ms cubic-bezier(0.420, 0.000, 0.580, 1.000); /* ease-in-out */
+}
 
-  html *{
-    margin: 0;
-    padding: 0;
-    font-family: "Lato", sans-serif;
-
-  }
-
-  body{
-
+html *{
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
+body{
   background-image: url("chess1.jpg");
   background-size: 1920px 1080px;
-  background-position: center -100px;
+  background-position: bottom;
   background-attachment: fixed;
+  background-color: transparentize(desaturate($accentColor, 20%), .4);
+  background-blend-mode: multiply;
+  color: #000;
+}
 
-    background-color: transparentize(desaturate($accentColor, 20%), .4);
-    background-blend-mode: multiply;
-
-    color: #000;
-
-
+/* Custom page header */
+.header {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  background: $dark;
+  height: 4.5em;
+  img{
+    margin: .5em;
+    float:left;
+    width: 250px;
   }
-  #backgroundVideo{
-
-  }
-
-  /* Custom page header */
-  .header {
+  .navButton{
     margin: 0;
-    padding: 0;
-    background: $dark;
+    color:darken($light, 10%);
     height: 4.5em;
-    img{
-      margin: .5em;
-      float:left;
-      width: 250px;
+    padding-top: 1.75em;
+    width: 130px;
+    text-align:center;
+    float: right;
+    font-weight: bold;
+    @include transition();
+    &:hover{
+    //  @include grad();
+      background-color: $accentColor;
+      //color: $dark;
     }
-    .navButton{
-      margin: 0;
-      color:darken($light, 10%);
-      height: 4.5em;
-      padding-top: 1.75em;
-      width: 130px;
-      text-align:center;
-      float: right;
-      font-weight: bold;
-      &:hover{
-        @include grad();
-        //color: black;
-      }
-      cursor: pointer;
-    }
-
-    .contact{
-      @include grad();
-      //color: black;
-    }
+    cursor: pointer;
   }
+}
+/*
+.navButton:first-child{
+@include grad();
+color: $dark;
+}
+*/
 
-  .headline{
-    background: transparentize(white, .3);
-    padding:.3em;
-    text-align: center;
-    font-size: 2.5em;
-    box-shadow: 0px 10px 30px 0px rgba(0,0,0, 0.15);
+.headline{
+  background: transparentize(white, .3);
+  padding:.3em;
+  text-align: center;
+  font-size: 2.5em;
+  box-shadow: 0px 10px 30px 0px rgba(0,0,0, 0.15);
+}
+
+.noPaddingRight{
+  padding-right: 0;
+}
+
+.right{
+  float: right;
+  margin-left: 1.5em;
+
+}
+
+.left{
+  float: left;
+  margin-right: 1.5em;
+
+}
+
+.assetSummary{
+  font-size: 1.1em;
+  margin:1em;
+  margin-right:.5em;
+  padding:1.5em;
+  border-radius: .3em;
+  overflow: auto;
+  @include gradient-vertical(transparentize($light, .3),transparentize($light, .6), 0%, 100%);
+  p{
+    margin-bottom: .5em;
+    //text-indent: 2em;
   }
-
-  /*
-  .cta-photo img {
-    width: 100%;
+  img{
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
+    border-radius: .2em;
+    width: 300px;
     height: auto;
-  }
 
-  .cta-blurb {
+  }
+  .imgContainer{
     position: relative;
-    width: 100%;
+    width: 300px;
+  }
+  .blurb {
+    font-weight: bold;
     color: $dark;
-    background-color: transparentize($accentColor, .5);
+    background-color: transparentize($accentColor, .3);
     padding: 1em;
     z-index: 1000;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top: 3px solid darken($accentColor, 25%);
+    border-bottom: 3px solid darken($accentColor, 25%);
   }
-  */
-  .noPaddingRight{
-    padding-right: 0;
-  }
+}
 
-  .assetSummary{
-    font-size: 1.1em;
-    margin:1em;
-    margin-right:.5em;
-    padding:2em;
-    border-radius: .3em;
-    @include gradient-vertical(transparentize($light, .3),transparentize($light, .6), 0%, 100%);
-
-    //background: transparentize($light, .4);
-    p{
-      //text-indent: 2em;
-    }
-    img{
-      box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
-      border-radius: .2em;
-      margin-left: 2em;
-      float:right;
-      width: 250px;
-    }
-    .blurbContainer{
-      position: relative;
-      width: 100%;
-      height: auto;
-    }
-    .blurb {
-      color: $light;
-      background-color: transparentize($dark, .5);
-      padding: 1em;
-      z-index: 1000;
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-    }
-  }
-
-  .signup{
-    @include gradient-vertical(darken($light, 0%),darken($light, 18%), 0%, 100%);
+.signup{
+  @include gradient-vertical(darken($light, 0%),darken($light, 18%), 0%, 100%);
+  padding: 0;
+  margin-top: 1.1em;
+  margin-left: 0;
+  border-radius: .3em;
+  form{
     padding: 0;
-    margin-top: 1.3em;
-    margin-left: 0;
-    border-radius: .3em;
-    form{
-      padding: 0;
-      margin: 0;
-    }
-    h2{
-      text-align:center;
-      margin: 0;
-      padding: .75em;
-      @include grad();
-      border-top-left-radius: .3rem;
-      border-top-right-radius: .3rem;
-    }
-    .pull-right {
-      float: none !important;
-    }
-    button{
-      float: none;
-      cursor: pointer;
-      color: $light;
-      padding-left:.75em;
-      padding-right:.75em;
-      padding-top:.5em;
-      padding-bottom:.5em;
-      font-size: 1.5em;
-      background: $mainColor;
-      margin: 0 auto;
-      border: none;
-      border-radius: .2em;
-      @include transition();
-      &:hover{
-        background: $accentColor;//lighten($dark, 10%);
-        color: $light;
-      }
-    }
-    .br-native-form{
-      text-align:center;
-      padding:1em;
-      padding-top: 0;
-    }
-    p{
-      margin-bottom: 1em;
-    }
-    label{
-      padding: .25em;
-    }
-    input{
-      margin: -.3em;
-      box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
-      border: none;
-      padding: .25em;
-      padding-left: .75em;
-    }
+    margin: 0;
   }
-
-  /* Custom page footer */
-  .footer {
-
-    overflow: auto;
-    box-sizing: border-box;
-    border-radius: .25em;
-    margin: 1.25em;
-    margin-right: .55em;
-    margin-bottom: 0;
-    padding: 1em;
+  h2{
+    text-align:center;
+    margin: 0;
+    padding: .75em;
+    @include grad();
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+  }
+  .pull-right {
+    float: none !important;
+  }
+  button{
+    float: none;
+    cursor: pointer;
     color: $light;
-    /*
-    @include gradient-vertical(transparentize($dark, .85),transparentize($dark, .8), 0%, 100%);
-    */
-    div{
-      cursor: pointer;
-      width: 390px;
-      overflow: auto;
-      margin: 0 auto;
-      text-align:center;
-    }
-    aside{
-      width: 100%;
-      padding-top: 1em;
-      text-align:center;
-    }
-    i{
-      background: $dark;
-      margin-right: 1em;
-      width:1.75em;
-      height:1.75em;
-      border-radius: 50%;
-      font-size: 2em;
-      float: left;
-      padding-top: .35em;
-      @include transition();
-      &:hover{
-        background: $accentColor;
-        color: $dark;
-      }
+    padding-left:.75em;
+    padding-right:.75em;
+    padding-top:.5em;
+    padding-bottom:.5em;
+    font-size: 1.5em;
+    background: $mainColor;
+    margin: 0 auto;
+    border: none;
+    border-radius: .2em;
+    @include transition();
+    &:hover{
+      background: $accentColor;//lighten($dark, 10%);
+      //color: $dark;
     }
   }
+  .br-native-form{
+    text-align:center;
+    padding:1em;
+    padding-top: 0;
+  }
+  p{
+    margin-bottom: 1em;
+  }
+  label{
+    padding: .25em;
+  }
+  input{
+    margin: -.3em;
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
+    border: none;
+    padding: .25em;
+    padding-left: .75em;
+  }
+}
 
-  /* Responsive: Portrait tablets and up */
-  @media screen and (min-width: 600px) {
-    .container {
-      max-width: 1140px;
+/* Custom page footer */
+.footer {
+  border-radius: .25em;
+  //margin: 1.25em;
+  //margin-right: .55em;
+  //margin-bottom: 0;
+  //padding: 1em;
+  color: $light;
+  text-align:center;
+
+  /*
+  @include gradient-vertical(transparentize($dark, .85),transparentize($dark, .8), 0%, 100%);
+  */
+  div{
+    padding-left: 2.3em;
+    display: inline-block;
+    overflow: auto;
+    margin: 0 auto;
+  }
+  aside{
+    width: 100%;
+    padding-top: .25em;
+    text-align:center;
+  }
+  i{
+    color : $light;
+    background: $dark;
+    margin-right: 1em;
+    width:1.75em;
+    height:1.75em;
+    border-radius: 50%;
+    font-size: 2em;
+    float: left;
+    padding-top: .35em;
+    @include transition();
+    &:hover{
+      background: $accentColor;
+      color: $dark;
     }
   }
+}
 
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 600px) {
+  .container {
+    max-width: 1640px;
+  }
 }
