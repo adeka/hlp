@@ -3,17 +3,60 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+//0fbfdd
+
 $colors: (
-header: #b06,
-text: #334,
-footer: #666777
+  accent: #0fbfdd,
+  main: #45a0b0,
+  lightColor: white,
+  darkColor: white,
+  textColor: #333,
+  accentLight: #0fbfdd,
+  accentDark: white,
+  headerHeight: 5em,
+  navButtonPad: 1.5em
+);
+
+$xceleration: (
+  accent: #c3d057,
+  main: #acb93e,
+  lightColor: white,
+  darkColor: white,
+  textColor: #333,
+  accentLight: #acb93e,
+  accentDark: white,
+  headerHeight: 4em,
+  navButtonPad: 1em
+);
+
+$digitus: (
+  accent: #0072c1,
+  main: #005691,
+  lightColor: white,
+  darkColor: white,
+  textColor: #333,
+  accentLight: #0072c1,
+  accentDark: white,
+  headerHeight: 6em,
+  navButtonPad: 2em
 );
 //map-get($colors, header);
-$accentColor: #EEA626;////rgb(141, 200, 93);
+
+/*
+$accentColor: #EEA626;
 $mainColor: #0e704c;
-//$accentColor: rgb(255, 200, 93);
 $light: white;
 $dark: black;
+*/
+$accentColor: map-get($colors, accent);
+$mainColor: map-get($colors, main);
+$light: map-get($colors, lightColor);
+$dark: map-get($colors, darkColor);
+$textColor: map-get($colors, textColor);
+$accentLight: map-get($colors, accentLight);
+$accentDark:  map-get($colors, accentDark);
+
+//#005691
 
 @mixin grad(){
   @include gradient-vertical(darken($accentColor, 0%),darken($accentColor, 10%), 0%, 100%);
@@ -29,9 +72,7 @@ html *{
   font-family: "Lato", sans-serif;
 }
 body{
-  background-image: url("chess1.jpg");
   background-size: 1920px 1080px;
-  background-position: bottom;
   background-attachment: fixed;
   background-color: transparentize(desaturate($accentColor, 20%), .4);
   background-blend-mode: multiply;
@@ -45,7 +86,7 @@ body{
   margin: 0;
   padding: 0;
   background: $dark;
-  height: 4.5em;
+  height: map-get($colors, headerHeight);
   img{
     margin: .5em;
     float:left;
@@ -53,9 +94,9 @@ body{
   }
   .navButton{
     margin: 0;
-    color:darken($light, 10%);
-    height: 4.5em;
-    padding-top: 1.75em;
+    color: $textColor;
+    height: map-get($colors, headerHeight);
+    padding-top: map-get($colors, navButtonPad);
     width: 130px;
     text-align:center;
     float: right;
@@ -222,8 +263,8 @@ color: $dark;
     text-align:center;
   }
   i{
-    color : $light;
-    background: $dark;
+    color : $accentLight;
+    background: $accentDark;
     margin-right: 1em;
     width:1.75em;
     height:1.75em;
@@ -234,7 +275,7 @@ color: $dark;
     @include transition();
     &:hover{
       background: $accentColor;
-      color: $dark;
+      color: $accentDark;
     }
   }
 }

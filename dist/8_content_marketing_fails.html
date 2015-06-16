@@ -24,7 +24,9 @@
               <div class="blurb">{{blurb}}</div>
             {{/if}}
           </div>
-          <p>{{summary}}</p>
+          {{#p summary}}
+            <p> {{paragraph}} </p>
+          {{/p}}
       </div>
       <div class="footer">
         <div>
@@ -40,7 +42,7 @@
     <div class="col-lg-5">
       <div class="signup col-lg-12">
         <h2><b>GET IT NOW!</b></h2>
-        <div data-br-form-id="5" class="br-native-form"></div>
+        <div data-br-form-id="24" class="br-native-form"></div>
       </div>
     </div>
   </div>
@@ -60,13 +62,20 @@
     logo : "./misc/logo-light.png",
     cta : "./misc/cta1.jpg",
     ctaAlignment: "right",
-    blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
+    backgroundImage: "./misc/sea.jpg",
+
+    blurb : "Download 8 Content Marketing Fails by filling out the form to the right.",
     client : "Castleford",
     analyticsCode : 'UA-XXXXX-X',
     host : "castleford.com.au",
     clientID : '348',
+    formID : "5",
     headline: "8 Content Marketing Fails",
-    summary : "Content marketing is creating a lot of buzz in Australia and New Zealand right now, with more and more businesses looking at content creation and promotion to build their online brands, boost their website traffic and increase their conversions. But making a success of content marketing requires a co-ordinated, strategic approach that extends well beyond starting a blog or rewriting your website copy. Like any marketing activity, there are lots of little pieces that need to come together for you to a see a return from content marketing. In this free download, some of our writers, editors, content strategists and account managers share their top content marketing fails. Avoiding these bear traps will help you meet and exceed your ROI expectations and become a content marketing success story."
+    summary : [
+      { paragraph: "Content marketing is creating a lot of buzz in Australia and New Zealand right now, with more and more businesses looking at content creation and promotion to build their online brands, boost their website traffic and increase their conversions." },
+      { paragraph: "But making a success of content marketing requires a co-ordinated, strategic approach that extends well beyond starting a blog or rewriting your website copy. Like any marketing activity, there are lots of little pieces that need to come together for you to a see a return from content marketing." },
+      { paragraph: "In this free download, some of our writers, editors, content strategists and account managers share their top content marketing fails. Avoiding these bear traps will help you meet and exceed your ROI expectations and become a content marketing success story." }
+    ]
   };
 
   Handlebars.registerHelper('list', function(context, options) {
@@ -76,8 +85,16 @@
     }
     return ret;
   });
+
+  Handlebars.registerHelper('p', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
   //compile function
-  compileHBS = function(context){
+  compileHBS = function(){
     var theTemplateScript = $("#block-expressions-template").html();
     var theTemplate = Handlebars.compile(theTemplateScript);
     var theCompiledHtml = theTemplate(context);
@@ -111,4 +128,6 @@
     ga('create',code);ga('send','pageview');
   }
   //compile
-  compileHBS(context);</script> <script src=scripts/main.js></script>
+  compileHBS(context);
+  $("body").css("background-image", "url("+context.backgroundImage+")");
+  $("body").css("background-position", "middle");</script> <script src=scripts/main.js></script>  

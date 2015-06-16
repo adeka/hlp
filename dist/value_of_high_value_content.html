@@ -24,7 +24,9 @@
               <div class="blurb">{{blurb}}</div>
             {{/if}}
           </div>
-          <p>{{summary}}</p>
+          {{#p summary}}
+            <p> {{paragraph}} </p>
+          {{/p}}
       </div>
       <div class="footer">
         <div>
@@ -45,29 +47,34 @@
     </div>
   </div>
 </div></script> <div id=content-placeholder></div> <script src=scripts/vendor.js></script> <script>//define content
-
-  var context = {
-    nav: [
-      { url: "http://www.castleford.com.au/#aboutus", title: "About Us" },
-      { url: "http://www.castleford.com.au/#blog", title: "Blog" },
-      { url: "http://www.castleford.com.au/#contact", title: "Contact" }
-    ],
-    social : [
-     {url : "http://www.facebook.com/pages/Castleford-Media/156827917673806", title : "facebook"},
-     {url : "http://twitter.com/castlefordmedia", title: "twitter"},
-     {url : "http://www.linkedin.com/company/castleford-media-pty-ltd", title : "linkedin"}
-    ],
-    logo : "./misc/logo-light.png",
-    cta : "./misc/tulips.jpg",
-    ctaAlignment: "right",
-    //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
-    client : "Castleford",
-    analyticsCode : 'UA-XXXXX-X',
-    host : "castleford.com.au",
-    clientID : '348',
-    headline: "Content Marketing Survey 2015",
-    summary : "Content marketing has established itself as a mainstream marketing tactic in Australia and New Zealand. Over the past 12 months, we’ve seen a significant shift in the mindsets of marketing professionals, with content marketing no longer an add-on, but the main driver of organic search traffic, social engagement, brand building and lead generation. Download our Content Marketing Survey now to find out the opinions and experiences of marketing professionals and decision makers in Australia and New Zealand."
-  };
+    var context = {
+      nav: [
+        { url: "http://www.castleford.com.au/#aboutus", title: "About Us" },
+        { url: "http://www.castleford.com.au/#blog", title: "Blog" },
+        { url: "http://www.castleford.com.au/#contact", title: "Contact" }
+      ],
+      social : [
+       {url : "http://www.facebook.com/pages/Castleford-Media/156827917673806", title : "facebook"},
+       {url : "http://twitter.com/castlefordmedia", title: "twitter"},
+       {url : "http://www.linkedin.com/company/castleford-media-pty-ltd", title : "linkedin"}
+      ],
+      logo : "./misc/logo-light.png",
+      cta : "./misc/tulips.jpg",
+      ctaAlignment: "right",
+      backgroundImage: "./misc/chess1.jpg",
+      //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
+      client : "Castleford",
+      analyticsCode : 'UA-XXXXX-X',
+      host : "castleford.com.au",
+      clientID : '348',
+      formID : "14",
+      headline: "Value of High Value Content",
+      summary : [
+        { paragraph : "Creating content for your blog, website and social media can help you connect with your target audience and tell great stories about your business. But with all your competitors blogging, tweeting and posting as well, just showing up is no longer enough to give you an edge."},
+        { paragraph : "Brands that really get content marketing are going beyond the minimum requirements and investing in higher value content. This free download provides a little intro to three of the most common types of high value content that we create for clients."},
+        { paragraph : "It’s designed to help you understand how downloadable assets can establish your business as a thought leader and help you capture useful information about your readers."}
+      ]
+    };
 
   Handlebars.registerHelper('list', function(context, options) {
     var ret = "";
@@ -76,8 +83,16 @@
     }
     return ret;
   });
+
+  Handlebars.registerHelper('p', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
   //compile function
-  compileHBS = function(context){
+  compileHBS = function(){
     var theTemplateScript = $("#block-expressions-template").html();
     var theTemplate = Handlebars.compile(theTemplateScript);
     var theCompiledHtml = theTemplate(context);
@@ -111,4 +126,6 @@
     ga('create',code);ga('send','pageview');
   }
   //compile
-  compileHBS(context);</script> <script src=scripts/main.js></script>
+  compileHBS(context);
+  $("body").css("background-image", "url("+context.backgroundImage+")");
+  $("body").css("background-position", "bottom");</script> <script src=scripts/main.js></script>

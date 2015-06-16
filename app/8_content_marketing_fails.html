@@ -27,7 +27,7 @@
   <script id="block-expressions-template" type="text/x-handlebars-template">
   <div class="header col-lg-12">
     <div class="container">
-      <a href="http://www.{{host}}"><img src={{logo}}></img></a>
+      <a href="{{clientURL}}"><img src={{logo}}></img></a>
       <div class="navWrap">
       {{#list nav}}
         <a href="{{url}}"><div class='navButton'>{{title}}</div></a>
@@ -67,11 +67,13 @@
     <div class="col-lg-5">
       <div class="signup col-lg-12">
         <h2><b>GET IT NOW!</b></h2>
-        <div data-br-form-id="24" class="br-native-form"></div>
+        <div data-br-form-id={{formID}} class="br-native-form"></div>
       </div>
     </div>
   </div>
 </div>
+</script>
+
 </script>
 <div id="content-placeholder"></div>
 <!-- build:js(.) scripts/vendor.js -->
@@ -94,6 +96,7 @@
 
 <script>
   //define content
+
   var context = {
     nav: [
       { url: "http://www.castleford.com.au/#aboutus", title: "About Us" },
@@ -108,7 +111,10 @@
     logo : "./misc/logo-light.png",
     cta : "./misc/cta1.jpg",
     ctaAlignment: "right",
-    blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
+    backgroundImage: "./misc/sea.jpg",
+    backgroundPosition: "middle",
+    clientURL: "castleford.com.au",
+    blurb : "Download 8 Content Marketing Fails by filling out the form to the right.",
     client : "Castleford",
     analyticsCode : 'UA-XXXXX-X',
     host : "castleford.com.au",
@@ -122,109 +128,9 @@
     ]
   };
 
-  /*
-
-    var context = {
-      nav: [
-        { url: "http://www.castleford.com.au/#aboutus", title: "About Us" },
-        { url: "http://www.castleford.com.au/#blog", title: "Blog" },
-        { url: "http://www.castleford.com.au/#contact", title: "Contact" }
-      ],
-      social : [
-       {url : "http://www.facebook.com/pages/Castleford-Media/156827917673806", title : "facebook"},
-       {url : "http://twitter.com/castlefordmedia", title: "twitter"},
-       {url : "http://www.linkedin.com/company/castleford-media-pty-ltd", title : "linkedin"}
-      ],
-      logo : "./misc/logo-light.png",
-      cta : "./misc/tulips.jpg",
-      ctaAlignment: "left",
-      //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
-      client : "Castleford",
-      analyticsCode : 'UA-XXXXX-X',
-      host : "castleford.com.au",
-      clientID : '348',
-      formID : "14",
-      headline: "Value of High Value Content",
-      summary : "Creating content for your blog, website and social media can help you connect with your target audience and tell great stories about your business. But with all your competitors blogging, tweeting and posting as well, just showing up is no longer enough to give you an edge. Brands that really get content marketing are going beyond the minimum requirements and investing in higher value content. This free download provides a little intro to three of the most common types of high value content that we create for clients. It’s designed to help you understand how downloadable assets can establish your business as a thought leader and help you capture useful information about your readers."
-    };
-  var context = {
-    nav: [
-      { url: "http://www.castleford.com.au/#aboutus", title: "About Us" },
-      { url: "http://www.castleford.com.au/#blog", title: "Blog" },
-      { url: "http://www.castleford.com.au/#contact", title: "Contact" }
-    ],
-    social : [
-     {url : "http://www.facebook.com/pages/Castleford-Media/156827917673806", title : "facebook"},
-     {url : "http://twitter.com/castlefordmedia", title: "twitter"},
-     {url : "http://www.linkedin.com/company/castleford-media-pty-ltd", title : "linkedin"}
-    ],
-    logo : "./misc/logo-light.png",
-    cta : "./misc/tulips.jpg",
-    ctaAlignment: "left",
-    blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
-    client : "Castleford",
-    analyticsCode : 'UA-XXXXX-X',
-    host : "castleford.com.au",
-    clientID : '348',
-    formID : "24",
-    headline: "Content Marketing Survey 2015",
-    summary : "Content marketing has established itself as a mainstream marketing tactic in Australia and New Zealand. Over the past 12 months, we’ve seen a significant shift in the mindsets of marketing professionals, with content marketing no longer an add-on, but the main driver of organic search traffic, social engagement, brand building and lead generation. Download our Content Marketing Survey now to find out the opinions and experiences of marketing professionals and decision makers in Australia and New Zealand."
-  };
-  */
-  Handlebars.registerHelper('list', function(context, options) {
-    var ret = "";
-    for(var i=0, j=context.length; i<j; i++) {
-      ret = ret + options.fn(context[i]);
-    }
-    return ret;
-  });
-
-  Handlebars.registerHelper('p', function(context, options) {
-    var ret = "";
-    for(var i=0, j=context.length; i<j; i++) {
-      ret = ret + options.fn(context[i]);
-    }
-    return ret;
-  });
-  //compile function
-  compileHBS = function(){
-    var theTemplateScript = $("#block-expressions-template").html();
-    var theTemplate = Handlebars.compile(theTemplateScript);
-    var theCompiledHtml = theTemplate(context);
-    $('#content-placeholder').html(theCompiledHtml);
-    runPumpkin(context.clientID, context.host);
-    runGoogleAnalytics(context.analyticsCode);
-  }
-  //marpro function
-  runPumpkin = function(clientId, host){
-    (function(w,pk){
-      var s=w.createElement('script');
-      s.type='text/javascript';
-      s.async=true;
-      s.src='//pumpkin.' + context.host + '/pumpkin.js';
-      var f=w.getElementsByTagName('script')[0];
-      f.parentNode.insertBefore(s,f);
-      if(!pk.__S){
-        window._pk=pk;pk.__S = 1.1;
-      }
-      pk.host='conversion.' + context.host;
-      pk.clientId=context.clientID;
-    })(document,window._pk||[])
-  }
-  //Google Analytics: change UA-XXXXX-X to be your site's ID.
-  runGoogleAnalytics = function(code){
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-    e.src='//www.google-analytics.com/analytics.js';
-    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create',code);ga('send','pageview');
-  }
-  //compile
-  compileHBS(context);
 </script>
-  <!-- build:js({app,.tmp}) scripts/main.js -->
-  <!--<script src="scripts/main.js"></script>-->
-  <!-- endbuild -->
+<!-- build:js({app,.tmp}) ./misc/main.js -->
+<script src="./misc/main.js"></script>
+<!-- endbuild -->
 </body>
 </html>
