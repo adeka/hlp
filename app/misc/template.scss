@@ -71,7 +71,7 @@
   .left{
     float: left;
     margin-right: 1.5em;
-    margin-bottom: 3em;
+    margin-bottom: map-get($colors, imagePad);
   }
 
   .assetSummary{
