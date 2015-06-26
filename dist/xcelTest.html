@@ -1,7 +1,6 @@
-<!DOCTYPE html> <html class=no-js id=castleford> <head> <meta charset=utf-8> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=misc/main.css>  <body> <!--[if lt IE 10]>
+<!DOCTYPE html> <html class=no-js id=xceleration> <head> <meta charset=utf-8> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=misc/main.css>  <body> <!--[if lt IE 10]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]--> <link href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel=stylesheet type=text/css> <link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css> <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js></script> <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js></script> <script id=block-expressions-template type=text/x-handlebars-template><title>{{headline}}</title>
-
     <div class="header col-lg-12">
       <div class="container">
         <a href="{{clientURL}}"><img src={{logo}}></img></a>
@@ -19,6 +18,7 @@
       <div class="row marketing">
         <div class="col-lg-7 noPaddingRight">
           <div class="assetSummary">
+
             <div class="imgContainer {{ctaAlignment}}">
               <img src={{cta}}></img>
               {{#if blurb}}
@@ -50,32 +50,31 @@
     </div></script> <div id=content-placeholder></div> <script src=./misc/vendor.js></script> <script>//define content
   var context = {
     nav: [
-      { url: "http://www.castleford.com.au/#aboutus", title: "About Us" },
-      { url: "http://www.castleford.com.au/#blog", title: "Blog" },
-      { url: "http://www.castleford.com.au/#contact", title: "Contact" }
+      { url: "http://www.xceleration.com/about-us-3/", title: "About Us" },
+      { url: "http://www.xceleration.com/resource-center/", title: "Blog" },
+      { url: "http://www.xceleration.com/contact-us/", title: "Contact" }
     ],
     social : [
-      {url : "http://www.facebook.com/pages/Castleford-Media/156827917673806", title : "facebook"},
-      {url : "http://twitter.com/castlefordmedia", title: "twitter"},
-      {url : "http://www.linkedin.com/company/castleford-media-pty-ltd", title : "linkedin"}
+      {url : "http://www.xceleration.com/industry-news/feed/", title : "rss"},
+      {url : "https://twitter.com/xcelerationinc", title: "twitter"},
+      {url : "https://www.linkedin.com/company/xceleration-inc.?goback=%2Efps_PBCK_xceleration_*1_*1_*1_*1_*1_*1_*2_*1_Y_*1_*1_*1_false_1_R_*1_*51_*1_*51_true_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2&trk=tabs_biz_home", title : "linkedin"}
     ],
-    logo : "./misc/logo-light.png",
-    cta : "./misc/tulips.jpg",
-    ctaAlignment: "right",
-    backgroundImage: "./misc/chess1.jpg",
-    backgroundPosition: "bottom",
-    clientURL: "castleford.com.au",
+    logo : "https://s3.amazonaws.com/marpro-brafton-s3/543/logo.png",
+    cta : "./misc/spotlight.jpg",
+    ctaAlignment: "left",
+    backgroundImage: "./misc/world.jpg",
+    backgroundPosition: "center",
     //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
-    client : "Castleford",
+    client : "Xceleration",
+    clientURL: "http://www.xceleration.com",
     analyticsCode : 'UA-XXXXX-X',
-    host : "castleford.com.au",
-    clientID : '348',
-    formID : "14",
-    headline: "Value of High Value Content",
+    host : "brafton.com",
+    clientID : '543',
+    formID : "16",
+    headline: "Recognition Programs Myths vs. Facts",
     summary : [
-      { paragraph : "Creating content for your blog, website and social media can help you connect with your target audience and tell great stories about your business. But with all your competitors blogging, tweeting and posting as well, just showing up is no longer enough to give you an edge. Brands that really get content marketing are going beyond the minimum requirements and investing in higher value content. "},
-      { paragraph : "This free download provides a little intro to three of the most common types of high value content that we create for clients."},
-      { paragraph : "It’s designed to help you understand how downloadable assets can establish your business as a thought leader and help you capture useful information about your readers."}
+      { paragraph : "Many HR professionals subscribe to myths about employee recognition programs, which often leads to abandoning these initiatives entirely. Our whitepaper looks to dispel some of these misconceptions and reinforce the positive value that recognition programs can have for your business." },
+      { paragraph : "Decision-makers may be interested to learn more about trending ROI concerns and the various ways that employees can be rewarded for exemplary work. "}
     ]
   };
   Handlebars.registerHelper('list', function(context, options) {
@@ -130,4 +129,4 @@
     //compile
     compileHBS(context);
     $("body").css("background-image", "url("+context.backgroundImage+")");
-    $("body").css("background-position", context.backgroundPosition);</script> <script src=./misc/main.js></script>  
+    $("body").css("background-position", context.backgroundPosition);</script>  

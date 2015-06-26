@@ -1,8 +1,7 @@
 <!doctype html>
-<html class="no-js" id="index1">
+<html class="no-js" id="ccc">
 <head>
   <meta charset="utf-8">
-  <title>hlp</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -25,6 +24,8 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
   <script id="block-expressions-template" type="text/x-handlebars-template">
+    <title>{{headline}}</title>
+
     <div class="header col-lg-12">
       <div class="container">
         <a href="{{clientURL}}"><img src={{logo}}></img></a>
@@ -96,39 +97,89 @@
   //define content
   var context = {
     nav: [
-      { url: "http://www.digitus-biometrics.com/about/", title: "About Us" },
-      { url: "http://www.digitus-biometrics.com/blog/", title: "Blog" },
-      { url: "http://www.digitus-biometrics.com/contact/", title: "Contact" }
+      { url: "http://www.corporatecostcontrol.com/about-us/", title: "About Us" },
+      { url: "http://www.corporatecostcontrol.com/category/blog/", title: "Blog" },
+      { url: "http://www.corporatecostcontrol.com/about-us/contact-us/", title: "Contact" }
     ],
     social : [
-      {url : "https://www.youtube.com/watch?v=ab9eMkmG0fc", title : "youtube"},
-      {url : "https://twitter.com/digibiometrics", title: "twitter"},
-      {url : "https://www.linkedin.com/company/digitus-biometrics-inc.?trk=tyah", title : "linkedin"}
+      {url : "https://www.facebook.com/pages/Corporate-Cost-Control/155718617801422", title : "facebook"},
+      {url : "http://www.linkedin.com/company/141232?trk=tyah&trkInfo=tas%3Acorporate%20cost%2Cidx%3A1-1-1", title : "linkedin"}
     ],
-    logo : "https://s3.amazonaws.com/marpro-brafton-s3/1368/logodigitus.jpg",
-    cta : "./misc/tulips.jpg",
+    logo : "https://s3.amazonaws.com/marpro-brafton-s3/1487/CCClogo.png",
+    cta : "./misc/states.jpg",
     ctaAlignment: "right",
-    backgroundImage: "./misc/abstract1.jpg",
-    backgroundPosition: "center",
+    backgroundImage: "./misc/branches.jpg",
+    backgroundPosition: "top",
     //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
-    client : "Castleford",
+    client : "Corporate Cost Control",
     analyticsCode : 'UA-XXXXX-X',
     host : "brafton.com",
-    clientURL : "http://www.digitus-biometrics.com/",
-    clientID : '1368',
-    formID : "13",
-    headline: "Creating Indisputable Audit Trails with Proper Physical Access",
+    clientURL: "http://www.corporatecostcontrol.com",
+    clientID : '1487',
+    formID : "33",
+    headline: "FUTA Increases - To Be or Not to Be",
     summary : [
-      { paragraph : "As technology has grown in recent years, so too has the need for top-flight security measures. Businesses must do everything they can to keep data secure, but they ways they approach security have changed much. In our white paper, decision-makers can read all about biometric access control and other leading-edge physical security controls offered by Digitus Biometrics." },
-      { paragraph : "New advanced methods of protecting data centers are increasingly available to businesses, and they can sufficiently educated themselves on all the most innovative and effective measures discussed in this white paper."}
+      { paragraph : "While debts owed by states to the federal government as a result of Title XII loans have decreased, 14 states still $14.5 billion. The number is well down from the 36 states that owed $36 billion during the peak, but in-the-red states risk losing percentages off their FUTA credit amount for each year the amount remains outstanding." },
+      { paragraph : "This scenario impacts employers across a number of states like California, New York and Ohio and is also a situation that is fluid and hard to grasp."},
+      { paragraph : "To help, we at Corporate Cost Control have compiled a white paper that explains in depth each state's standing and plans to pay debts off so employers in these states can be totally clear of their situation and mitigate any costs."}
 
     ]
   };
+  Handlebars.registerHelper('list', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
 
-
-    </script>
+  Handlebars.registerHelper('p', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
+  //compile function
+  compileHBS = function(){
+    var theTemplateScript = $("#block-expressions-template").html();
+    var theTemplate = Handlebars.compile(theTemplateScript);
+    var theCompiledHtml = theTemplate(context);
+    $('#content-placeholder').html(theCompiledHtml);
+    runPumpkin(context.clientID, context.host);
+    runGoogleAnalytics(context.analyticsCode);
+  }
+  //marpro function
+  runPumpkin = function(clientId, host){
+    (function(w,pk){
+      var s=w.createElement('script');
+      s.type='text/javascript';
+      s.async=true;
+      s.src='//pumpkin.' + context.host + '/pumpkin.js';
+      var f=w.getElementsByTagName('script')[0];
+      f.parentNode.insertBefore(s,f);
+      if(!pk.__S){
+        window._pk=pk;pk.__S = 1.1;
+      }
+      pk.host='conversion.' + context.host;
+      pk.clientId=context.clientID;
+    })(document,window._pk||[])
+  }
+  //Google Analytics: change UA-XXXXX-X to be your site's ID.
+  runGoogleAnalytics = function(code){
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create',code);ga('send','pageview');
+    }
+    //compile
+    compileHBS(context);
+    $("body").css("background-image", "url("+context.backgroundImage+")");
+    $("body").css("background-position", context.backgroundPosition);
+</script>
     <!-- build:js({app,.tmp}) ./misc/main.js -->
-    <script src="./misc/main.js"></script>
     <!-- endbuild -->
   </body>
   </html>

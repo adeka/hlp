@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" id="castleford">
+<html class="no-js" id="ccc">
 <head>
   <meta charset="utf-8">
   <meta name="description" content="">
@@ -43,6 +43,7 @@
       <div class="row marketing">
         <div class="col-lg-7 noPaddingRight">
           <div class="assetSummary">
+
             <div class="imgContainer {{ctaAlignment}}">
               <img src={{cta}}></img>
               {{#if blurb}}
@@ -96,32 +97,30 @@
   //define content
   var context = {
     nav: [
-      { url: "http://www.castleford.com.au/#aboutus", title: "About Us" },
-      { url: "http://www.castleford.com.au/#blog", title: "Blog" },
-      { url: "http://www.castleford.com.au/#contact", title: "Contact" }
+      { url: "http://www.corporatecostcontrol.com/about-us/", title: "About Us" },
+      { url: "http://www.corporatecostcontrol.com/category/blog/", title: "Blog" },
+      { url: "http://www.corporatecostcontrol.com/about-us/contact-us/", title: "Contact" }
     ],
     social : [
-      {url : "http://www.facebook.com/pages/Castleford-Media/156827917673806", title : "facebook"},
-      {url : "http://twitter.com/castlefordmedia", title: "twitter"},
-      {url : "http://www.linkedin.com/company/castleford-media-pty-ltd", title : "linkedin"}
+      {url : "https://www.facebook.com/pages/Corporate-Cost-Control/155718617801422", title : "facebook"},
+      {url : "http://www.linkedin.com/company/141232?trk=tyah&trkInfo=tas%3Acorporate%20cost%2Cidx%3A1-1-1", title : "linkedin"}
     ],
-    logo : "./misc/logo-light.png",
-    cta : "./misc/tulips.jpg",
+    logo : "https://s3.amazonaws.com/marpro-brafton-s3/1487/CCClogo.png",
+    cta : "./misc/packup.png",
     ctaAlignment: "right",
-    backgroundImage: "./misc/chess1.jpg",
-    backgroundPosition: "bottom",
-    clientURL: "castleford.com.au",
+    backgroundImage: "./misc/branches.jpg",
+    backgroundPosition: "top",
     //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
-    client : "Castleford",
+    client : "Corporate Cost Control",
+    clientURL: "http://www.corporatecostcontrol.com",
     analyticsCode : 'UA-XXXXX-X',
-    host : "castleford.com.au",
-    clientID : '348',
-    formID : "14",
-    headline: "Value of High Value Content",
+    host : "brafton.com",
+    clientID : '1487',
+    formID : "34",
+    headline: "UI Integrity - An Explanation of the Legislation and CCC’s Solutions",
     summary : [
-      { paragraph : "Creating content for your blog, website and social media can help you connect with your target audience and tell great stories about your business. But with all your competitors blogging, tweeting and posting as well, just showing up is no longer enough to give you an edge. Brands that really get content marketing are going beyond the minimum requirements and investing in higher value content. "},
-      { paragraph : "This free download provides a little intro to three of the most common types of high value content that we create for clients."},
-      { paragraph : "It’s designed to help you understand how downloadable assets can establish your business as a thought leader and help you capture useful information about your readers."}
+      { paragraph : "Unemployment integrity is a primary concern for many employers in payouts, and recent legislation has further underscored that notion. States have enacted new measures, as was federally mandated, that penalize an employer if they don't respond in a timely manner or have a pattern of failing to respond." },
+      { paragraph : "In this white paper, we break down all new scenarios of UI integrity and explain how employers can stay compliant and save money. Read through this document to find how your state will be enforcing the new regulations and what Corporate Cost Control is doing to protect its clients."}
     ]
   };
   Handlebars.registerHelper('list', function(context, options) {
@@ -177,11 +176,8 @@
     compileHBS(context);
     $("body").css("background-image", "url("+context.backgroundImage+")");
     $("body").css("background-position", context.backgroundPosition);
-
-
-    </script>
+</script>
     <!-- build:js({app,.tmp}) ./misc/main.js -->
-    <script src="./misc/main.js"></script>
     <!-- endbuild -->
   </body>
   </html>

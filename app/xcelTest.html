@@ -1,8 +1,7 @@
 <!doctype html>
-<html class="no-js" id="index1">
+<html class="no-js" id="xceleration">
 <head>
   <meta charset="utf-8">
-  <title>hlp</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -25,6 +24,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
   <script id="block-expressions-template" type="text/x-handlebars-template">
+    <title>{{headline}}</title>
     <div class="header col-lg-12">
       <div class="container">
         <a href="{{clientURL}}"><img src={{logo}}></img></a>
@@ -96,9 +96,9 @@
   //define content
   var context = {
     nav: [
-      { url: "http://www.castleford.com.au/#aboutus", title: "About Us" },
-      { url: "http://www.castleford.com.au/#blog", title: "Blog" },
-      { url: "http://www.castleford.com.au/#contact", title: "Contact" }
+      { url: "http://www.xceleration.com/about-us-3/", title: "About Us" },
+      { url: "http://www.xceleration.com/resource-center/", title: "Blog" },
+      { url: "http://www.xceleration.com/contact-us/", title: "Contact" }
     ],
     social : [
       {url : "http://www.xceleration.com/industry-news/feed/", title : "rss"},
@@ -106,12 +106,12 @@
       {url : "https://www.linkedin.com/company/xceleration-inc.?goback=%2Efps_PBCK_xceleration_*1_*1_*1_*1_*1_*1_*2_*1_Y_*1_*1_*1_false_1_R_*1_*51_*1_*51_true_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2_*2&trk=tabs_biz_home", title : "linkedin"}
     ],
     logo : "https://s3.amazonaws.com/marpro-brafton-s3/543/logo.png",
-    cta : "./misc/tulips.jpg",
-    ctaAlignment: "right",
+    cta : "./misc/spotlight.jpg",
+    ctaAlignment: "left",
     backgroundImage: "./misc/world.jpg",
     backgroundPosition: "center",
     //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
-    client : "Castleford",
+    client : "Xceleration",
     clientURL: "http://www.xceleration.com",
     analyticsCode : 'UA-XXXXX-X',
     host : "brafton.com",
@@ -123,11 +123,61 @@
       { paragraph : "Decision-makers may be interested to learn more about trending ROI concerns and the various ways that employees can be rewarded for exemplary work. "}
     ]
   };
+  Handlebars.registerHelper('list', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
 
-
-    </script>
+  Handlebars.registerHelper('p', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
+  //compile function
+  compileHBS = function(){
+    var theTemplateScript = $("#block-expressions-template").html();
+    var theTemplate = Handlebars.compile(theTemplateScript);
+    var theCompiledHtml = theTemplate(context);
+    $('#content-placeholder').html(theCompiledHtml);
+    runPumpkin(context.clientID, context.host);
+    runGoogleAnalytics(context.analyticsCode);
+  }
+  //marpro function
+  runPumpkin = function(clientId, host){
+    (function(w,pk){
+      var s=w.createElement('script');
+      s.type='text/javascript';
+      s.async=true;
+      s.src='//pumpkin.' + context.host + '/pumpkin.js';
+      var f=w.getElementsByTagName('script')[0];
+      f.parentNode.insertBefore(s,f);
+      if(!pk.__S){
+        window._pk=pk;pk.__S = 1.1;
+      }
+      pk.host='conversion.' + context.host;
+      pk.clientId=context.clientID;
+    })(document,window._pk||[])
+  }
+  //Google Analytics: change UA-XXXXX-X to be your site's ID.
+  runGoogleAnalytics = function(code){
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create',code);ga('send','pageview');
+    }
+    //compile
+    compileHBS(context);
+    $("body").css("background-image", "url("+context.backgroundImage+")");
+    $("body").css("background-position", context.backgroundPosition);
+  </script>
     <!-- build:js({app,.tmp}) ./misc/main.js -->
-    <script src="./misc/main.js"></script>
     <!-- endbuild -->
   </body>
   </html>

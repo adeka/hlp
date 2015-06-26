@@ -1,0 +1,214 @@
+@mixin grad($colors){
+  @include gradient-vertical(darken(map-get($colors, accent), 0%),darken(map-get($colors, accent), 10%), 0%, 100%);
+}
+
+@mixin transition(){
+  transition: all 150ms cubic-bezier(0.420, 0.000, 0.580, 1.000); /* ease-in-out */
+}
+
+@mixin LoadStyle($colors){
+  html *{
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+  }
+  body{
+    background-size: 1920px 1080px;
+    background-attachment: fixed;
+    background-color: transparentize(desaturate(map-get($colors, accent), 20%), .4);
+    background-blend-mode: multiply;
+    color: #000;
+  }
+
+  /* Custom page header */
+  .header {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    background: map-get($colors, darkColor);
+    height: map-get($colors, headerHeight);
+    img{
+      margin: .5em;
+      float:left;
+      width: 250px;
+    }
+    .navButton{
+      margin: 0;
+      color: map-get($colors, textColor);
+      height: map-get($colors, headerHeight);
+      padding-top: map-get($colors, navButtonPad);
+      width: 130px;
+      text-align:center;
+      float: right;
+      font-weight: bold;
+      @include transition();
+      &:hover{
+        background-color: map-get($colors, accent);
+      }
+      cursor: pointer;
+    }
+  }
+
+  .headline{
+    background: transparentize(white, .3);
+    padding:.3em;
+    text-align: center;
+    font-size: 2.5em;
+    box-shadow: 0px 10px 30px 0px rgba(0,0,0, 0.15);
+  }
+
+  .noPaddingRight{
+    padding-right: 0;
+  }
+
+  .right{
+    float: right;
+    margin-left: 1.5em;
+
+  }
+
+  .left{
+    float: left;
+    margin-right: 1.5em;
+    margin-bottom: 3em;
+  }
+
+  .assetSummary{
+    font-size: 1.1em;
+    margin:1em;
+    margin-right:.5em;
+    padding:1.5em;
+    border-radius: .3em;
+    overflow: auto;
+    @include gradient-vertical(transparentize(map-get($colors, lightColor), .3),transparentize(map-get($colors, lightColor), .6), 0%, 100%);
+    p{
+      margin-bottom: .5em;
+    }
+    img{
+      box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
+      border-radius: .2em;
+      width: 300px;
+      height: auto;
+
+    }
+    .imgContainer{
+      position: relative;
+      width: 300px;
+    }
+    .blurb {
+      font-weight: bold;
+      color: map-get($colors, darkColor);
+      background-color: transparentize(map-get($colors, accent), .3);
+      padding: 1em;
+      z-index: 1000;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      border-top: 3px solid darken(map-get($colors, accent), 25%);
+      border-bottom: 3px solid darken(map-get($colors, accent), 25%);
+    }
+  }
+
+  .signup{
+    @include gradient-vertical(darken(map-get($colors, lightColor), 0%),darken(map-get($colors, lightColor), 18%), 0%, 100%);
+    padding: 0;
+    margin-top: 1.1em;
+    margin-left: 0;
+    border-radius: .3em;
+    form{
+      padding: 0;
+      margin: 0;
+    }
+    h2{
+      text-align:center;
+      margin: 0;
+      padding: .75em;
+      @include grad($colors);
+      border-top-left-radius: .3rem;
+      border-top-right-radius: .3rem;
+    }
+    .pull-right {
+      float: none !important;
+    }
+    button{
+      float: none;
+      cursor: pointer;
+      color: map-get($colors, lightColor);
+      padding-left:.75em;
+      padding-right:.75em;
+      padding-top:.5em;
+      padding-bottom:.5em;
+      font-size: 1.5em;
+      background: map-get($colors, main);
+      margin: 0 auto;
+      border: none;
+      border-radius: .2em;
+      @include transition();
+      &:hover{
+        background: map-get($colors, accent);
+      }
+    }
+    .br-native-form{
+      text-align:center;
+      padding:1em;
+      padding-top: 0;
+    }
+    p{
+      margin-bottom: 1em;
+    }
+    label{
+      padding: .25em;
+    }
+    input{
+      margin: -.3em;
+      box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
+      border: none;
+      padding: .25em;
+      padding-left: .75em;
+    }
+  }
+
+  /* Custom page footer */
+  .footer {
+    border-radius: .25em;
+    color: map-get($colors, lightColor);
+    text-align:center;
+
+    div{
+      padding-left: 2.3em;
+      display: inline-block;
+      overflow: auto;
+      margin: 0 auto;
+    }
+    aside{
+      width: 100%;
+      padding-top: .25em;
+      text-align:center;
+    }
+    i{
+      color : map-get($colors, accentLight);
+      background: map-get($colors, accentDark);
+      margin-right: 1em;
+      width:1.75em;
+      height:1.75em;
+      border-radius: 50%;
+      font-size: 2em;
+      float: left;
+      padding-top: .35em;
+      @include transition();
+      &:hover{
+        background: map-get($colors, accent);
+        color: map-get($colors, accentDark);
+      }
+    }
+  }
+
+  /* Responsive: Portrait tablets and up */
+  @media screen and (min-width: 600px) {
+    .container {
+      max-width: 1640px;
+    }
+  }
+
+}
