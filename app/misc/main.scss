@@ -56,6 +56,20 @@ $castleford: (
   imagePad: 0
 );
 
+$brightclaim: (
+  accent: #FFC424,
+  main: #F15C22,
+  lightColor: white,
+  darkColor: white,
+  textColor: #333,
+  accentLight: white,
+  accentDark: #0065A4,
+  headerHeight: 6em,
+  navButtonPad: 2.2em,
+  imagePad: 0
+);
+
+
 #castleford{
   @include LoadStyle($castleford);
 }
@@ -70,4 +84,8 @@ $castleford: (
 
 #digitus{
   @include LoadStyle($digitus);
+}
+
+#brightclaim {
+  @include LoadStyle($brightclaim);
 }
