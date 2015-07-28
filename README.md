@@ -104,11 +104,16 @@ After installing the previous parts, do the following to set up this project:
  ```bower install```
  
  - this does something similar, but with a different json file in the bower folder
+ - Next, we need to install the grunt-cli package from NPM, type in the following command:
+ 
+ ```npm install grunt-cli -g --save-dev```
+
  - if all goes well, you should have all the parts necessary to run the project. Run the following command:
  
  ```grunt serve```
  
  - this will pop open a tab in your browser where the entire project is being served to a web server on your localhost
+ - what you see is simply a placeholder index.html file, not an actual landing page
  
 ###Project Heirarchy
  - The main folder contains several files and folders that make everything work correctly
