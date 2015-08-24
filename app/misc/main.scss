@@ -44,8 +44,8 @@ $digitus: (
 );
 
 $castleford: (
-  accent: #EEA626,
-  main: #0e704c,
+  accent: #FF9D01,
+  main: #0057a6,
   lightColor: white,
   darkColor: black,
   textColor: #DDD,
@@ -70,6 +70,18 @@ $brightclaim: (
   fontFam: Rosario
 );
 
+$syrinx: (
+  accent: #FFC424,
+  main: #0057A6,
+  lightColor: white,
+  darkColor: white,
+  textColor: #333,
+  accentLight: white,
+  accentDark: #0057A6,
+  headerHeight: 9em,
+  navButtonPad: 3.5em,
+  imagePad: 0
+);
 
 #castleford{
   @include LoadStyle($castleford);
@@ -89,4 +101,8 @@ $brightclaim: (
 
 #brightclaim {
   @include LoadStyle($brightclaim);
+}
+
+#syrinx {
+  @include LoadStyle($syrinx);
 }
