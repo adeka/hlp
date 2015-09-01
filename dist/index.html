@@ -1,0 +1,79 @@
+<!DOCTYPE html> <html class=no-js id=index1> <head> <meta charset=utf-8> <title>hlp</title> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=misc/main.css>  <body> <!--[if lt IE 10]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]--> <link href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel=stylesheet type=text/css> <link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css> <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js></script> <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js></script> <script id=block-expressions-template type=text/x-handlebars-template><div class="header col-lg-12">
+      <div class="container">
+        <a href="{{clientURL}}"><img src={{logo}}></img></a>
+        <div class="navWrap">
+          {{#list nav}}
+          <a href="{{url}}"><div class='navButton'>{{title}}</div></a>
+          {{/list}}
+        </div>
+      </div>
+    </div>
+    <div class="headline col-lg-12">
+      {{headline}}
+    </div>
+    <div class="container">
+      <div class="row marketing">
+        <div class="col-lg-7 noPaddingRight">
+          <div class="assetSummary">
+
+            <div class="imgContainer {{ctaAlignment}}">
+              <img src={{cta}}></img>
+              {{#if blurb}}
+              <div class="blurb">{{blurb}}</div>
+              {{/if}}
+            </div>
+            {{#p summary}}
+            <p> {{paragraph}} </p>
+            {{/p}}
+          </div>
+          <div class="footer">
+            <div>
+              {{#list social}}
+              <a href="{{url}}"><i class="fa fa-{{title}}"></i></a>
+              {{/list}}
+            </div>
+            <aside>
+              Copyright © 2015 {{client}}
+            </aside>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="signup col-lg-12">
+            <h2><b>GET IT NOW!</b></h2>
+            <div data-br-form-id={{formID}} class="br-native-form"></div>
+          </div>
+        </div>
+      </div>
+    </div></script> <div id=content-placeholder></div> <script src=./misc/vendor.js></script> <script>//define content
+  var context = {
+    nav: [
+      { url: "http://www.corporatecostcontrol.com/about-us/", title: "About Us" },
+      { url: "http://www.corporatecostcontrol.com/category/blog/", title: "Blog" },
+      { url: "http://www.corporatecostcontrol.com/about-us/contact-us/", title: "Contact" }
+    ],
+    social : [
+      {url : "https://www.facebook.com/pages/Corporate-Cost-Control/155718617801422", title : "facebook"},
+      {url : "http://www.linkedin.com/company/141232?trk=tyah&trkInfo=tas%3Acorporate%20cost%2Cidx%3A1-1-1", title : "linkedin"}
+    ],
+    logo : "https://s3.amazonaws.com/marpro-brafton-s3/1487/CCClogo.png",
+    cta : "./misc/tulips.jpg",
+    ctaAlignment: "right",
+    backgroundImage: "./misc/branches.jpg",
+    backgroundPosition: "top",
+    //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
+    client : "Castleford",
+    analyticsCode : 'UA-XXXXX-X',
+    host : "brafton.com",
+    clientURL: "http://www.corporatecostcontrol.com",
+    clientID : '1487',
+    formID : "33",
+    headline: "FUTA Increases - To Be or Not to Be",
+    summary : [
+      { paragraph : "While debts owed by states to the federal government as a result of Title XII loans have decreased, 14 states still $14.5 billion. The number is well down from the 36 states that owed $36 billion during the peak, but in-the-red states risk losing percentages off their FUTA credit amount for each year the amount remains outstanding." },
+      { paragraph : "This scenario impacts employers across a number of states like California, New York and Ohio and is also a situation that is fluid and hard to grasp."},
+      { paragraph : "To help, we at Corporate Cost Control have compiled a white paper that explains in depth each state's standing and plans to pay debts off so employers in these states can be totally clear of their situation and mitigate any costs."}
+
+    ]
+  };</script> <script src=./misc/main.js></script>  

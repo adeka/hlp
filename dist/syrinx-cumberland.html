@@ -1,0 +1,143 @@
+<!DOCTYPE html> <html class=no-js id=syrinx> <head> <meta charset=utf-8> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=misc/main.css>  <body> <!--[if lt IE 10]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]--> <link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css> <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js></script> <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js></script> <script id=block-expressions-template type=text/x-handlebars-template><title>{{headline}}</title>
+
+    <div class="header col-lg-12">
+      <div class="container">
+        <a href="{{clientURL}}"><img src={{logo}}></img></a>
+        <div class="navWrap">
+          {{#list nav}}
+          <a href="{{url}}"><div class='navButton'>{{title}}</div></a>
+          {{/list}}
+        </div>
+      </div>
+    </div>
+    <div class="headline col-lg-12">
+      {{headline}}
+    </div>
+    <div class="container">
+      <div class="row marketing">
+        <div class="col-lg-7 noPaddingRight">
+          <div class="assetSummary">
+
+            <div class="imgContainer {{ctaAlignment}}">
+              <img src={{cta}}></img>
+              {{#if blurb}}
+              <div class="blurb">{{blurb}}</div>
+              {{/if}}
+            </div>
+            {{#p summary}}
+            <p> {{paragraph}} </p>
+            {{/p}}
+          </div>
+          <div class="footer">
+            <div>
+              {{#list social}}
+              <a href="{{url}}"><i class="fa fa-{{title}}"></i></a>
+              {{/list}}
+            </div>
+            <aside>
+              Copyright © 2015 {{client}}
+            </aside>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="signup col-lg-12">
+            <h2><b>GET IT NOW!</b></h2>
+            <br>
+            <div data-br-form-id={{formID}} class="br-native-form"></div>
+          </div>
+        </div>
+      </div>
+    </div></script> <div id=content-placeholder></div> <script src=./misc/vendor.js></script> <script>//define content
+  var context = {
+    nav: [
+      { url: "http://www.syrinx.com/#contact", title: "Contact Us" },
+      { url: "http://www.syrinx.com/#jobs", title: "Jobs" },
+      { url: "http://www.syrinx.com/#partners", title: "Partner" },
+      { url: "http://www.syrinx.com/#team", title: "Team" },
+      { url: "http://www.syrinx.com/#aboutus", title: "About Us" },
+      { url: "http://www.syrinx.com/#recent-news", title: "Blog" },
+      //{ url: "http://www.syrinx.com/#process", title: "Process"},
+      //{ url: "http://www.syrinx.com/#clients", title: "Clients"},
+      //{ url: "http://www.syrinx.com/#services", title: "Services"},
+    ],
+    social : [
+      //{url : "https://www.facebook.com/BrightClaim", title : "facebook"},
+      //{url : "https://twitter.com/brightclaim", title: "twitter"},
+      //{url : "https://plus.google.com/103735299933761094057/posts", title : "google-plus"},
+      //{url : "https://www.linkedin.com/company/brightclaim", title : "linkedin"},
+    ],
+    logo : "./misc/syrinxlogo01.png",
+    cta : "./misc/syrinx-cumberland.jpg",
+    ctaAlignment: "right",
+    backgroundImage: "./misc/datalink.jpg",
+    backgroundPosition: "center",
+    //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
+    client : "Syrinx",
+    analyticsCode : 'UA-2459780-1',
+    host : "brafton.com",
+    clientURL : "http://syrinx.com/",
+    clientID : '1947',
+    formID : "114",
+    headline: "Mobile Development",
+    summary : [
+      { paragraph : 'Syrinx Consulting is a custom software development company that builds top-notch mobile apps for business. We are a developer founded, developer run software consulting company. We work on-site or off-site with clients to collaboratively create software. We build products for market, or for internal use at companies.' },
+      { paragraph : 'Our systems help companies make more money, save more money, build loyalty, and do much more. Because we are founded and run by software developers, we bring a deep understanding of software and its challenges to our projects. Our developers work directly with the clients to help them build what they need, which is not always what they ask for out of the gate. We help them understand markets, adapt to change, and produce great systems.' },
+      { paragraph : 'We have clients from many industries, ranging from Financial Services, Insurance, and Banking to automotive, Internet, e-learning, petroleum and gas, the list goes on. The one thing they have in common is that they rely on technology to power their business. We help provide that power.'}, 
+      { paragraph : 'Syrinx built a mobile point-of-sale system for Cumberland Farms that allows their customers to find gas stations and pay at the pump. High-performance iPhone, Android, and mobile HTML 5 clients connect to scalable cloud-based services that perform ACH, PayPal, and coupon management. SmartPay for Cumberland Farms is an industry leading mobile payment solution that has earned Cumberland Farms over nine digits in revenue.'}
+    ]
+  };
+  Handlebars.registerHelper('list', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
+
+  Handlebars.registerHelper('p', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
+  //compile function
+  compileHBS = function(){
+    var theTemplateScript = $("#block-expressions-template").html();
+    var theTemplate = Handlebars.compile(theTemplateScript);
+    var theCompiledHtml = theTemplate(context);
+    $('#content-placeholder').html(theCompiledHtml);
+    runPumpkin(context.clientID, context.host);
+    runGoogleAnalytics(context.analyticsCode);
+  }
+  //marpro function
+  runPumpkin = function(clientId, host){
+    (function(w,pk){
+      var s=w.createElement('script');
+      s.type='text/javascript';
+      s.async=true;
+      s.src='//pumpkin.' + context.host + '/pumpkin.js';
+      var f=w.getElementsByTagName('script')[0];
+      f.parentNode.insertBefore(s,f);
+      if(!pk.__S){
+        window._pk=pk;pk.__S = 1.1;
+      }
+      pk.host='conversion.' + context.host;
+      pk.clientId=context.clientID;
+    })(document,window._pk||[])
+  }
+  //Google Analytics: change UA-XXXXX-X to be your site's ID.
+  runGoogleAnalytics = function(code){
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create',code);ga('send','pageview');
+    }
+    //compile
+    compileHBS(context);
+    $("body").css("background-image", "url("+context.backgroundImage+")");
+    $("body").css("background-position", context.backgroundPosition);</script>  

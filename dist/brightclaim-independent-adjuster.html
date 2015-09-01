@@ -1,0 +1,136 @@
+<!DOCTYPE html> <html class=no-js id=brightclaim> <head> <meta charset=utf-8> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=misc/main.css>  <body> <!--[if lt IE 10]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]--> <link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css> <link href="http://fonts.googleapis.com/css?family=Rosario:400,700,400italic" rel=stylesheet type=text/css> <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js></script> <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js></script> <script id=block-expressions-template type=text/x-handlebars-template><title>{{headline}}</title>
+
+    <div class="header col-lg-12">
+      <div class="container">
+        <a href="{{clientURL}}"><img src={{logo}}></img></a>
+        <div class="navWrap">
+          {{#list nav}}
+          <a href="{{url}}"><div class='navButton'>{{title}}</div></a>
+          {{/list}}
+        </div>
+      </div>
+    </div>
+    <div class="headline col-lg-12">
+      {{headline}}
+    </div>
+    <div class="container">
+      <div class="row marketing">
+        <div class="col-lg-7 noPaddingRight">
+          <div class="assetSummary">
+
+            <div class="imgContainer {{ctaAlignment}}">
+              <img src={{cta}}></img>
+              {{#if blurb}}
+              <div class="blurb">{{blurb}}</div>
+              {{/if}}
+            </div>
+            {{#p summary}}
+            <p> {{paragraph}} </p>
+            {{/p}}
+          </div>
+          <div class="footer">
+            <div>
+              {{#list social}}
+              <a href="{{url}}"><i class="fa fa-{{title}}"></i></a>
+              {{/list}}
+            </div>
+            <aside>
+              Copyright © 2015 {{client}}
+            </aside>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="signup col-lg-12">
+            <h2><b>GET IT NOW!</b></h2>
+            <br>
+            <div data-br-form-id={{formID}} class="br-native-form"></div>
+          </div>
+        </div>
+      </div>
+    </div></script> <div id=content-placeholder></div> <script src=./misc/vendor.js></script> <script>//define content
+  var context = {
+    nav: [
+      { url: "http://brightclaim.com/whitepapers/", title: "Whitepapers"},
+      { url: "http://brightclaim.com/leadership-team/", title: "Leadership Team"},
+      { url: "http://brightclaim.com/careers/", title: "Careers"},
+      { url: "http://brightclaim.com/", title: "Home" },
+    ],
+    social : [
+      {url : "https://www.facebook.com/BrightClaim", title : "facebook"},
+      {url : "https://twitter.com/brightclaim", title: "twitter"},
+      {url : "https://plus.google.com/103735299933761094057/posts", title : "google-plus"},
+      {url : "https://www.linkedin.com/company/brightclaim", title : "linkedin"},
+    ],
+    logo : "./misc/brightclaimlogo.png",
+    cta : "./misc/brightclaimcta2.jpg",
+    ctaAlignment: "right",
+    backgroundImage: "./misc/windows.jpg",
+    backgroundPosition: "center",
+    //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
+    client : "Brightclaim",
+    analyticsCode : 'UA-XXXXX-X',
+    host : "contentlead.com",
+    clientURL : "http://brightclaim.com/",
+    clientID : '16000919',
+    formID : "147",
+    headline: "How Solid is your Independent Adjuster Strategy?",
+    summary : [
+      { paragraph : 'According to a 2015 research survey commissioned by BrightClaim and conducted by Ward Group, 89% of property casualty insurer respondents report using independent adjusters on property claims, so if you are involved in managing property claims, chances are you outsource some portion of the claims handling process to independent claim service providers. Download our "How Solid is Your Independent Adjuster Strategy" whitepaper to learn more.'}
+
+    ]
+  };
+  Handlebars.registerHelper('list', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
+
+  Handlebars.registerHelper('p', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
+  //compile function
+  compileHBS = function(){
+    var theTemplateScript = $("#block-expressions-template").html();
+    var theTemplate = Handlebars.compile(theTemplateScript);
+    var theCompiledHtml = theTemplate(context);
+    $('#content-placeholder').html(theCompiledHtml);
+    runPumpkin(context.clientID, context.host);
+    runGoogleAnalytics(context.analyticsCode);
+  }
+  //marpro function
+  runPumpkin = function(clientId, host){
+    (function(w,pk){
+      var s=w.createElement('script');
+      s.type='text/javascript';
+      s.async=true;
+      s.src='//pumpkin.' + context.host + '/pumpkin.js';
+      var f=w.getElementsByTagName('script')[0];
+      f.parentNode.insertBefore(s,f);
+      if(!pk.__S){
+        window._pk=pk;pk.__S = 1.1;
+      }
+      pk.host='conversion.' + context.host;
+      pk.clientId=context.clientID;
+    })(document,window._pk||[])
+  }
+  //Google Analytics: change UA-XXXXX-X to be your site's ID.
+  runGoogleAnalytics = function(code){
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create',code);ga('send','pageview');
+    }
+    //compile
+    compileHBS(context);
+    $("body").css("background-image", "url("+context.backgroundImage+")");
+    $("body").css("background-position", context.backgroundPosition);</script>  
