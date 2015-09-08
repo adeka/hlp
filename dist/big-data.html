@@ -1,29 +1,6 @@
-<!doctype html>
-<html class="no-js" id="syrinx">
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <!-- build:css(.) misc/vendor.css -->
-  <!-- bower:css -->
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:css(.tmp) misc/main.css -->
-  <link rel="stylesheet" href="./misc/main.css">
-  <!-- endbuild -->
-</head>
-<body>
-  <!--[if lt IE 10]>
+<!DOCTYPE html> <html class=no-js id=syrinx> <head> <meta charset=utf-8> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=misc/main.css>  <body> <!--[if lt IE 10]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-  <script id="block-expressions-template" type="text/x-handlebars-template">
-    <title>{{headline}}</title>
+  <![endif]--> <link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css> <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js></script> <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js></script> <script id=block-expressions-template type=text/x-handlebars-template><title>{{headline}}</title>
 
     <div class="header col-lg-12">
       <div class="container">
@@ -66,35 +43,13 @@
         </div>
         <div class="col-lg-5">
           <div class="signup col-lg-12">
-            <h2><b>GET IT NOW!</b></h2>
+            <h2><b>Download Whitepaper: The Developer Difference</b></h2>
             <br>
             <div data-br-form-id={{formID}} class="br-native-form"></div>
           </div>
         </div>
       </div>
-    </div>
-  </script>
-  <div id="content-placeholder"></div>
-  <!-- build:js(.) ./misc/vendor.js -->
-  <!-- bower:js -->
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
-  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
-
-  <script>
-  //define content
+    </div></script> <div id=content-placeholder></div> <script src=./misc/vendor.js></script> <script>//define content
   var context = {
     nav: [
       { url: "http://www.syrinx.com/#contact", title: "Contact Us" },
@@ -114,9 +69,9 @@
       //{url : "https://www.linkedin.com/company/brightclaim", title : "linkedin"},
     ],
     logo : "./misc/syrinxlogo01.png",
-    cta : "./misc/syrinx-cumberland.jpg",
+    cta : "./misc/syrinx-bigdata.jpg",
     ctaAlignment: "right",
-    backgroundImage: "./misc/datalink.jpg",
+    backgroundImage: "./misc/congrats.jpg",
     backgroundPosition: "center",
     //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
     client : "Syrinx",
@@ -124,10 +79,10 @@
     host : "brafton.com",
     clientURL : "http://syrinx.com/",
     clientID : '1947',
-    formID : "114",
-    headline: "Syrinx for Cumberland Farms",
+    formID : "115",
+    headline: "Big Data",
     summary : [
-      { paragraph : 'Having the most cutting-edge and competitive mobile software can solidify a company’s place in its market. But with so many advancements in technology and countless development options, it can be difficult to stay on top. This is where a software consultancy firm can prove especially useful, as the provider is staffed with experts who specialize in mobile development and can dedicate their skills to your needs. As a result, you can save money on development while driving your ROI up. Our white paper takes a more in-depth look at the many advantages developing a partnership with a software consultancy firm for your mobile development needs.' }
+      { paragraph : "Big Data is certainly not a new concept, but it continues to grow more integral to virtually every business. Harnessing its power can provide crucial insight into your business that will enable you to grow and adapt to see even bigger returns on investment. Key to finding success with data analytics is software development, which is growing and changing as rapidly as Big Data itself. A third-party software consultancy that is dedicated to staying on top of the latest changes can help your company remain at the forefront of this venture. A solid partnership with the right vendor will afford you access to highly trained experts in the field of Big Data at a lower cost than hiring in-house staff to meet these needs. Read our white paper to learn more about the benefits of a partnership with a software consultancy firm. " }
     ]
   };
   Handlebars.registerHelper('list', function(context, options) {
@@ -182,9 +137,4 @@
     //compile
     compileHBS(context);
     $("body").css("background-image", "url("+context.backgroundImage+")");
-    $("body").css("background-position", context.backgroundPosition);
-</script>
-    <!-- build:js({app,.tmp}) ./misc/main.js -->
-    <!-- endbuild -->
-  </body>
-  </html>
+    $("body").css("background-position", context.backgroundPosition);</script>  
