@@ -31,7 +31,9 @@
     img{
       margin: .5em;
       float:left;
-      width: 250px;
+      max-width: 250px;
+      width: map-get($colors, logoWidth);
+      height: map-get($colors, logoHeight);
     }
     .navButton{
       margin: 0;
@@ -210,5 +212,4 @@
       max-width: 1640px;
     }
   }
-
 }

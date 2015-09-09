@@ -71,16 +71,18 @@ $brightclaim: (
 );
 
 $syrinx: (
-  accent: #FFC424,
+  accent: #ff8500,
   main: #0057A6,
   lightColor: white,
-  darkColor: white,
-  textColor: #333,
+  darkColor: black,
+  textColor: white,
   accentLight: white,
-  accentDark: #0057A6,
-  headerHeight: 9em,
-  navButtonPad: 3.5em,
-  imagePad: 0
+  accentDark: black,
+  headerHeight: 5em,
+  navButtonPad: 1.9em,
+  imagePad: 2em,
+  logoHeight: 4em,
+  logoWidth: 10em
 );
 
 #castleford{
