@@ -51,17 +51,18 @@
       </div>
     </div></script> <div id=content-placeholder></div> <script src=./misc/vendor.js></script> <script>//define content
   var context = {
+    opacity: .85,
     nav: [
-      { url: "http://brightclaim.com/whitepapers/", title: "Whitepapers"},
+      /*{ url: "http://brightclaim.com/whitepapers/", title: "Whitepapers"},
       { url: "http://brightclaim.com/leadership-team/", title: "Leadership Team"},
       { url: "http://brightclaim.com/careers/", title: "Careers"},
-      { url: "http://brightclaim.com/", title: "Home" },
+      { url: "http://brightclaim.com/", title: "Home" },*/
     ],
     social : [
-      {url : "https://www.facebook.com/BrightClaim", title : "facebook"},
+      /*{url : "https://www.facebook.com/BrightClaim", title : "facebook"},
       {url : "https://twitter.com/brightclaim", title: "twitter"},
       {url : "https://plus.google.com/103735299933761094057/posts", title : "google-plus"},
-      {url : "https://www.linkedin.com/company/brightclaim", title : "linkedin"},
+      {url : "https://www.linkedin.com/company/brightclaim", title : "linkedin"},*/
     ],
     logo : "./misc/brightclaimlogo.png",
     cta : "./misc/brightclaimcta2.jpg",
@@ -70,14 +71,14 @@
     backgroundPosition: "center",
     //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
     client : "Brightclaim",
-    analyticsCode : 'UA-XXXXX-X',
+    analyticsCode : 'UA-30842154-1',
     host : "contentlead.com",
     clientURL : "http://brightclaim.com/",
     clientID : '16000919',
     formID : "147",
     headline: "How Solid is your Independent Adjuster Strategy?",
     summary : [
-      { paragraph : 'According to a 2015 research survey commissioned by BrightClaim and conducted by Ward Group, 89% of property casualty insurer respondents report using independent adjusters on property claims, so if you are involved in managing property claims, chances are you outsource some portion of the claims handling process to independent claim service providers. Download our "How Solid is Your Independent Adjuster Strategy" whitepaper to learn more.'}
+      { paragraph : 'A 2015 research survey commissioned by BrightClaim and conducted by Ward Group revealed that 89 percent of property casualty insurer respondents reported using independent adjusters on property claims. If you are involved in managing property claims, chances are you outsource some portion of the claims handling process to independent claim service providers. Download our "How Solid is Your Independent Adjuster Strategy" white paper to learn more.'}
 
     ]
   };
@@ -133,4 +134,5 @@
     //compile
     compileHBS(context);
     $("body").css("background-image", "url("+context.backgroundImage+")");
-    $("body").css("background-position", context.backgroundPosition);</script>  
+    $("body").css("background-position", context.backgroundPosition);
+    $(".assetSummary").css("background", "rgba(255, 255, 255, "+context.opacity+")");</script>  
