@@ -97,6 +97,7 @@
   <script>
   //define content
   var context = {
+    opacity: .75,
     nav: [
       { url: "http://brightclaim.com/whitepapers/", title: "Whitepapers"},
       { url: "http://brightclaim.com/leadership-team/", title: "Leadership Team"},
@@ -180,6 +181,7 @@
     compileHBS(context);
     $("body").css("background-image", "url("+context.backgroundImage+")");
     $("body").css("background-position", context.backgroundPosition);
+    $(".assetSummary").css("background", "rgba(255, 255, 255, "+context.opacity+")");
 </script>
     <!-- build:js({app,.tmp}) ./misc/main.js -->
     <!-- endbuild -->

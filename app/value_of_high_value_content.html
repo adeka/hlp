@@ -95,6 +95,7 @@
   <script>
   //define content
   var context = {
+    opacity: .75,
     nav: [
       { url: "http://www.castleford.com.au/#aboutus", title: "About Us" },
       { url: "http://www.castleford.com.au/#blog", title: "Blog" },
@@ -177,6 +178,7 @@
     compileHBS(context);
     $("body").css("background-image", "url("+context.backgroundImage+")");
     $("body").css("background-position", context.backgroundPosition);
+    $(".assetSummary").css("background", "rgba(255, 255, 255, "+context.opacity+")");
 
 
     </script>
