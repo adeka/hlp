@@ -85,6 +85,20 @@ $syrinx: (
   logoWidth: 10em
 );
 
+$crowe: (
+  accent: #F7A800,
+  main: #002E62,
+  lightColor: white,
+  darkColor: white,
+  textColor: black,
+  accentLight: white,
+  accentDark: #002E62,
+  headerHeight: 4em,
+  navButtonPad: 1.3em,
+  imagePad: 2em
+);
+
+
 #castleford{
   @include LoadStyle($castleford);
 }
@@ -107,4 +121,8 @@ $syrinx: (
 
 #syrinx {
   @include LoadStyle($syrinx);
+}
+
+#crowe {
+  @include LoadStyle($crowe);
 }
