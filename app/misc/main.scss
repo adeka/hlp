@@ -98,6 +98,20 @@ $crowe: (
   imagePad: 2em
 );
 
+$totalsafety: (
+ main: #1362A5,
+ accent: #F9DE42,
+ lightColor: white,
+ darkColor: white,
+ textColor: #000,
+ accentLight: white,
+ accentDark: #0065A4,
+ headerHeight: 6em,
+ navButtonPad: 2.2em,
+ imagePad: 0,
+ fontFam: Rosario
+);
+
 
 #castleford{
   @include LoadStyle($castleford);
@@ -125,4 +139,8 @@ $crowe: (
 
 #crowe {
   @include LoadStyle($crowe);
+}
+
+#totalsafety{
+   @include LoadStyle($totalsafety);
 }
