@@ -1,0 +1,188 @@
+<!doctype html>
+<html class="no-js" id="rapid-advance">
+<head>
+  <meta charset="utf-8">
+  <title>hlp</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) misc/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) misc/main.css -->
+  <link rel="stylesheet" href="./misc/main.css">
+  <!-- endbuild -->
+</head>
+<body>
+  <!--[if lt IE 10]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <script id="block-expressions-template" type="text/x-handlebars-template">
+    <div class="header col-lg-12">
+      <div class="container">
+        <a href="{{clientURL}}"><img src={{logo}}></img></a>
+        <div class="navWrap">
+          {{#list nav}}
+          <a href="{{url}}"><div class='navButton'>{{title}}</div></a>
+          {{/list}}
+        </div>
+      </div>
+    </div>
+    <div class="headline col-lg-12">
+      {{headline}}
+    </div>
+    <div class="container">
+      <div class="row marketing">
+        <div class="col-lg-7 noPaddingRight">
+          <div class="assetSummary">
+
+            <div class="imgContainer {{ctaAlignment}}">
+              <img src={{cta}}></img>
+              {{#if blurb}}
+              <div class="blurb">{{blurb}}</div>
+              {{/if}}
+            </div>
+            {{#p summary}}
+            <p> {{paragraph}} </p>
+            {{/p}}
+          </div>
+          <div class="footer">
+            <div>
+              {{#list social}}
+              <a href="{{url}}"><i class="fa fa-{{title}}"></i></a>
+              {{/list}}
+            </div>
+            <aside>
+              Copyright © 2015 {{client}}
+            </aside>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="signup col-lg-12">
+            <h2><b>GET IT NOW!</b></h2>
+            <div data-br-form-id={{formID}} class="br-native-form"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+  <div id="content-placeholder"></div>
+  <!-- build:js(.) ./misc/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <script>
+  //define content
+  var context = {
+    opacity: 1,
+    nav: [
+      { url: "http://www.rapidadvance.com/our-culture", title: "About Us" },
+      { url: "http://www.rapidadvance.com/blog", title: "Blog" },
+      { url: "http://www.rapidadvance.com/contact-us", title: "Contact" }
+    ],
+    social : [
+      {url : "https://twitter.com/Rapid_Advance", title : "twitter"},
+      {url : "https://plus.google.com/+RapidAdvance/posts", title : "google-plus"}
+    ],
+    logo : "./misc/rapid-advance.png",
+    cta : "./misc/RapidAdvanceWPImage.jpg",
+    ctaAlignment: "right",
+    backgroundImage: "./misc/bluegreen.jpg",
+    backgroundPosition: "top",
+    //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
+    client : "Rapid Advance",
+    analyticsCode : 'UA-XXXXX-X',
+    host : "brafton.com",
+    clientURL: "http://www.rapidadvance.com/",
+    clientID : '705',
+    formID : "154",
+    headline: "Internet Marketing 101: How Small Businesses Can Compete with the Big Guys",
+    summary : [
+      { paragraph : "Big companies have a lot of advantages that make them formidable competitors to small businesses, but that doesn’t mean they’re untouchable. There are numerous ways to take advantage of the elements of small business larger enterprises won’t have to find success in the marketplace." },
+      { paragraph : "Money may play a large role in a company’s success, but it’s far from the only tool available. Download our whitepaper, “Internet Marketing 101: How Small Businesses Can Compete with the Big Guys,” today to learn more about how to play to your strengths and success in your market. "},
+    ]
+  };
+
+  Handlebars.registerHelper('list', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
+
+  Handlebars.registerHelper('p', function(context, options) {
+    var ret = "";
+    for(var i=0, j=context.length; i<j; i++) {
+      ret = ret + options.fn(context[i]);
+    }
+    return ret;
+  });
+  //compile function
+  compileHBS = function(){
+    var theTemplateScript = $("#block-expressions-template").html();
+    var theTemplate = Handlebars.compile(theTemplateScript);
+    var theCompiledHtml = theTemplate(context);
+    $('#content-placeholder').html(theCompiledHtml);
+    runPumpkin(context.clientID, context.host);
+    runGoogleAnalytics(context.analyticsCode);
+  }
+  //marpro function
+  runPumpkin = function(clientId, host){
+    (function(w,pk){
+      var s=w.createElement('script');
+      s.type='text/javascript';
+      s.async=true;
+      s.src='//pumpkin.' + context.host + '/pumpkin.js';
+      var f=w.getElementsByTagName('script')[0];
+      f.parentNode.insertBefore(s,f);
+      if(!pk.__S){
+        window._pk=pk;pk.__S = 1.1;
+      }
+      pk.host='conversion.' + context.host;
+      pk.clientId=context.clientID;
+    })(document,window._pk||[])
+  }
+  //Google Analytics: change UA-XXXXX-X to be your site's ID.
+  runGoogleAnalytics = function(code){
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create',code);ga('send','pageview');
+    }
+    //compile
+    compileHBS(context);
+    $("body").css("background-image", "url("+context.backgroundImage+")");
+    $("body").css("background-position", context.backgroundPosition);
+    $(".assetSummary").css("background-image", "none !important");
+    $(".assetSummary").css("background", "rgba(255, 255, 255, "+context.opacity+")");
+
+    </script>
+    <!-- build:js({app,.tmp}) ./misc/main.js -->
+    <script src="./misc/main.js"></script>
+    <!-- endbuild -->
+  </body>
+  </html>

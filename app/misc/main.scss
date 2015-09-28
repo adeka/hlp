@@ -4,6 +4,19 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 @import "template.scss";
 
+$rapid-advance: (
+  accent: #2a83b1,
+  main: #6abf59,
+  lightColor: white,
+  darkColor: white,
+  textColor: #333,
+  accentLight: #2a83b1,
+  accentDark: white,
+  headerHeight: 5em,
+  navButtonPad: 1.5em,
+  imagePad: 0
+);
+
 $ccc: (
   accent: #0fbfdd,
   main: #45a0b0,
@@ -112,6 +125,9 @@ $totalsafety: (
  fontFam: Rosario
 );
 
+#rapid-advance{
+  @include LoadStyle($rapid-advance);
+}
 
 #castleford{
   @include LoadStyle($castleford);
