@@ -12,6 +12,30 @@
   <!-- endbuild -->
   <!-- build:css(.tmp) misc/main.css -->
   <link rel="stylesheet" href="./misc/main.css">
+  <style>
+    ul {
+      list-style: none;
+      padding: 10px;
+    }
+    li {
+      padding-left: 20px;
+      position: relative;
+      margin: 2px 0px;
+    }
+    li:before {
+      content: '';
+      display: inline-block;
+      text-indent: 0px;
+      position: relative;
+      top: 0;
+      left: -13px;
+      border-radius: 10px;
+      width: 7px;
+      height: 7px;
+      background-color: #fdb814;
+      margin-left: -7px;
+    }
+  </style>
   <!-- endbuild -->
 </head>
 <body>
@@ -52,6 +76,20 @@
           {{#p summary}}
             <p> {{paragraph}} </p>
           {{/p}}
+          <ul>
+            <li>
+              Quantifying the premium
+            </li>
+            <li>
+              How visual analytics can help detect fraud
+            </li>
+            <li>
+              The role of the valuator
+            </li>
+            <li>
+              Determining key-person discounts
+            </li>
+          </ul>
       </div>
       <div class="footer">
         <div>
@@ -109,7 +147,7 @@
     ],
     logo : "./misc/crowe-logo.png",
     cta : "./misc/CroweHorwathWPimage.jpg",
-    ctaAlignment: "left",
+    ctaAlignment: "right",
     backgroundImage: "./misc/chess1.jpg",
     backgroundPosition: "middle",
     clientURL: "http://croweghphorwath.com",
@@ -121,7 +159,8 @@
     formID : "151",
     headline: "Crowe GHP Horwath Whitepaper: Dispelling Myths About Control Premiums",
     summary :   [
-      {paragraph : 'Control premiums are often shrouded in mystery, and you may hear a lot of conflicting information regarding their usage. Our latest whitepaper aims to clear some of this misinformation up and set the record straight by examining the many factors that come into consideration when dealing with control premiums, from determining the value to detecting fraud to the role of the valuator. To learn everything you need to know about this tricky topic, download our whitepaper, “Dispelling Myths About Control Premiums,” today.'},
+      {paragraph : 'Control premiums are often shrouded in mystery, and you may hear a lot of conflicting information regarding their usage. Our latest whitepaper aims to clarify the many factors that come into consideration.'},
+      {paragraph : 'Download our whitepaper, “Dispelling Myths About Control Premiums,” to learn more about the following:'}
     ]
     };
     Handlebars.registerHelper('list', function(context, options) {
