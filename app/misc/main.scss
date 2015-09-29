@@ -14,7 +14,8 @@ $rapid-advance: (
   accentDark: white,
   headerHeight: 5em,
   navButtonPad: 1.5em,
-  imagePad: 0
+  imagePad: 0,
+  navButtonWidth: 130px
 );
 
 $ccc: (
@@ -27,7 +28,8 @@ $ccc: (
   accentDark: white,
   headerHeight: 5em,
   navButtonPad: 1.5em,
-  imagePad: 0
+  imagePad: 0,
+  navButtonWidth: 130px
 );
 
 $xceleration: (
@@ -40,7 +42,8 @@ $xceleration: (
   accentDark: white,
   headerHeight: 4em,
   navButtonPad: 1em,
-  imagePad: 3em
+  imagePad: 3em,
+  navButtonWidth: 130px
 );
 
 $digitus: (
@@ -53,7 +56,8 @@ $digitus: (
   accentDark: white,
   headerHeight: 6em,
   navButtonPad: 2em,
-  imagePad: 0
+  imagePad: 0,
+  navButtonWidth: 130px
 );
 
 $castleford: (
@@ -66,7 +70,8 @@ $castleford: (
   accentDark: black,
   headerHeight: 4.5em,
   navButtonPad: 1.7em,
-  imagePad: 0
+  imagePad: 0,
+  navButtonWidth: 130px
 );
 
 $brightclaim: (
@@ -80,7 +85,8 @@ $brightclaim: (
   headerHeight: 6em,
   navButtonPad: 2.2em,
   imagePad: 0,
-  fontFam: Rosario
+  fontFam: Rosario,
+  navButtonWidth: 130px
 );
 
 $syrinx: (
@@ -95,7 +101,8 @@ $syrinx: (
   navButtonPad: 1.9em,
   imagePad: 2em,
   logoHeight: 4em,
-  logoWidth: 10em
+  logoWidth: 10em,
+  navButtonWidth: 100px
 );
 
 $crowe: (
@@ -108,7 +115,8 @@ $crowe: (
   accentDark: #002E62,
   headerHeight: 4em,
   navButtonPad: 1.3em,
-  imagePad: 2em
+  imagePad: 2em,
+  navButtonWidth: 130px
 );
 
 $totalsafety: (
@@ -122,7 +130,8 @@ $totalsafety: (
  headerHeight: 6em,
  navButtonPad: 2.2em,
  imagePad: 0,
- fontFam: Rosario
+ fontFam: Rosario,
+ navButtonWidth: 130px
 );
 
 #rapid-advance{

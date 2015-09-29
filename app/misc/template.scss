@@ -40,7 +40,8 @@
       color: map-get($colors, textColor);
       height: map-get($colors, headerHeight);
       padding-top: map-get($colors, navButtonPad);
-      width: 130px;
+      width: map-get($colors, navButtonWidth);
+      /*width: 130px;*/
       text-align:center;
       float: right;
       font-weight: bold;
