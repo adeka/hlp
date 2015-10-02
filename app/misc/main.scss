@@ -14,8 +14,10 @@ $rapid-advance: (
   accentDark: white,
   headerHeight: 5em,
   navButtonPad: 1.5em,
+  navButtonFontWeight: bold,
   imagePad: 0,
-  navButtonWidth: 130px
+  navButtonWidth: 130px,
+  imgMargin: .5em
 );
 
 $ccc: (
@@ -28,8 +30,10 @@ $ccc: (
   accentDark: white,
   headerHeight: 5em,
   navButtonPad: 1.5em,
+  navButtonFontWeight: bold,
   imagePad: 0,
-  navButtonWidth: 130px
+  navButtonWidth: 130px,
+  imgMargin: .5em
 );
 
 $xceleration: (
@@ -42,8 +46,10 @@ $xceleration: (
   accentDark: white,
   headerHeight: 4em,
   navButtonPad: 1em,
+  navButtonFontWeight: bold,
   imagePad: 3em,
-  navButtonWidth: 130px
+  navButtonWidth: 130px,
+  imgMargin: .5em
 );
 
 $digitus: (
@@ -56,8 +62,10 @@ $digitus: (
   accentDark: white,
   headerHeight: 6em,
   navButtonPad: 2em,
+  navButtonFontWeight: bold,
   imagePad: 0,
-  navButtonWidth: 130px
+  navButtonWidth: 130px,
+  imgMargin: .5em
 );
 
 $castleford: (
@@ -70,8 +78,10 @@ $castleford: (
   accentDark: black,
   headerHeight: 4.5em,
   navButtonPad: 1.7em,
+  navButtonFontWeight: bold,
   imagePad: 0,
-  navButtonWidth: 130px
+  navButtonWidth: 130px,
+  imgMargin: .5em
 );
 
 $brightclaim: (
@@ -84,9 +94,11 @@ $brightclaim: (
   accentDark: #0065A4,
   headerHeight: 6em,
   navButtonPad: 2.2em,
+  navButtonFontWeight: bold,
   imagePad: 0,
   fontFam: Rosario,
-  navButtonWidth: 130px
+  navButtonWidth: 130px,
+  imgMargin: .5em
 );
 
 $syrinx: (
@@ -97,11 +109,13 @@ $syrinx: (
   textColor: white,
   accentLight: white,
   accentDark: black,
-  headerHeight: 5em,
-  navButtonPad: 1.9em,
+  headerHeight: 3.6em,
+  navButtonPad: 1.2em,
+  navButtonFontWeight: normal,
   imagePad: 2em,
   logoWidth: 12em,
-  navButtonWidth: 100px
+  navButtonWidth: 100px,
+  imgMargin: 0
 );
 
 $crowe: (
@@ -114,8 +128,10 @@ $crowe: (
   accentDark: #002E62,
   headerHeight: 4em,
   navButtonPad: 1.3em,
+  navButtonFontWeight: bold,
   imagePad: 2em,
-  navButtonWidth: 130px
+  navButtonWidth: 130px,
+  imgMargin: .5em
 );
 
 $totalsafety: (
@@ -128,9 +144,11 @@ $totalsafety: (
  accentDark: #0065A4,
  headerHeight: 6em,
  navButtonPad: 2.2em,
+ navButtonFontWeight: bold,
  imagePad: 0,
  fontFam: Rosario,
- navButtonWidth: 130px
+ navButtonWidth: 130px,
+ imgMargin: .5em
 );
 
 #rapid-advance{

@@ -29,7 +29,7 @@
     background: map-get($colors, darkColor);
     height: map-get($colors, headerHeight);
     img{
-      margin: .5em;
+      margin: map-get($colors, imgMargin);
       float:left;
       max-width: 250px;
       width: map-get($colors, logoWidth);
@@ -44,7 +44,7 @@
       /*width: 130px;*/
       text-align:center;
       float: right;
-      font-weight: bold;
+      font-weight: map-get($colors, navButtonFontWeight);
       @include transition();
       &:hover{
         background-color: map-get($colors, accent);
