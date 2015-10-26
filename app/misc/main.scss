@@ -17,7 +17,8 @@ $rapid-advance: (
   navButtonFontWeight: bold,
   imagePad: 0,
   navButtonWidth: 130px,
-  imgMargin: .5em
+  imgMargin: .5em,
+ formTitleColor: auto
 );
 
 $ccc: (
@@ -33,7 +34,8 @@ $ccc: (
   navButtonFontWeight: bold,
   imagePad: 0,
   navButtonWidth: 130px,
-  imgMargin: .5em
+  imgMargin: .5em,
+ formTitleColor: auto
 );
 
 $xceleration: (
@@ -49,7 +51,8 @@ $xceleration: (
   navButtonFontWeight: bold,
   imagePad: 3em,
   navButtonWidth: 130px,
-  imgMargin: .5em
+  imgMargin: .5em,
+ formTitleColor: auto
 );
 
 $digitus: (
@@ -65,7 +68,8 @@ $digitus: (
   navButtonFontWeight: bold,
   imagePad: 0,
   navButtonWidth: 130px,
-  imgMargin: .5em
+  imgMargin: .5em,
+ formTitleColor: auto
 );
 
 $castleford: (
@@ -81,7 +85,8 @@ $castleford: (
   navButtonFontWeight: bold,
   imagePad: 0,
   navButtonWidth: 130px,
-  imgMargin: .5em
+  imgMargin: .5em,
+ formTitleColor: auto
 );
 
 $brightclaim: (
@@ -98,7 +103,8 @@ $brightclaim: (
   imagePad: 0,
   fontFam: Rosario,
   navButtonWidth: 130px,
-  imgMargin: .5em
+  imgMargin: .5em,
+ formTitleColor: auto
 );
 
 $syrinx: (
@@ -115,7 +121,8 @@ $syrinx: (
   imagePad: 2em,
   logoWidth: 12em,
   navButtonWidth: 100px,
-  imgMargin: 0
+  imgMargin: 0,
+ formTitleColor: auto
 );
 
 $crowe: (
@@ -131,7 +138,8 @@ $crowe: (
   navButtonFontWeight: bold,
   imagePad: 2em,
   navButtonWidth: 130px,
-  imgMargin: .5em
+  imgMargin: .5em,
+ formTitleColor: auto
 );
 
 $totalsafety: (
@@ -148,7 +156,26 @@ $totalsafety: (
  imagePad: 0,
  fontFam: Rosario,
  navButtonWidth: 130px,
- imgMargin: .5em
+ imgMargin: .5em,
+ formTitleColor: auto
+);
+
+$interactiveedge: (
+ main: #CB130C,
+ accent: #CB130C,
+ lightColor: white,
+ darkColor: white,
+ textColor: white,
+ accentLight: white,
+ accentDark: #CB130C,
+ headerHeight: 6.5em,
+ navButtonPad: 2.2em,
+ navButtonFontWeight: bold,
+ imagePad: 0,
+ fontFam: 'Roboto' Arial,
+ navButtonWidth: 130px,
+ imgMargin: .5em,
+ formTitleColor: white
 );
 
 #rapid-advance{
@@ -185,4 +212,8 @@ $totalsafety: (
 
 #totalsafety{
    @include LoadStyle($totalsafety);
+}
+
+#interactiveedge{
+   @include LoadStyle($interactiveedge);
 }

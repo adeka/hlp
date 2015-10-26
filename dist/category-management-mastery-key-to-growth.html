@@ -1,6 +1,6 @@
-<!DOCTYPE html> <html class=no-js id=syrinx> <head> <meta charset=utf-8> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=misc/main.css>  <body> <!--[if lt IE 10]>
+<!DOCTYPE html> <html class=no-js id=interactiveedge> <head> <meta charset=utf-8> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=misc/main.css>  <body> <!--[if lt IE 10]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]--> <link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css> <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js></script> <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js></script> <script id=block-expressions-template type=text/x-handlebars-template><title>{{headline}}</title>
+  <![endif]--> <link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css> <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel=stylesheet type=text/css> <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js></script> <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js></script> <script id=block-expressions-template type=text/x-handlebars-template><title>{{headline}}</title>
 
     <div class="header col-lg-12">
       <div class="container">
@@ -26,9 +26,20 @@
               <div class="blurb">{{blurb}}</div>
               {{/if}}
             </div>
-            {{#p summary}}
+           {{#p summary}}
             <p> {{paragraph}} </p>
-            {{/p}}
+          {{/p}}
+          <ul>
+            <li>
+              How category management drives profitability
+            </li>
+            <li>
+              How category management lessens supply chain complexity
+            </li>
+            <li>
+              How category management relates to data insights
+            </li>
+          </ul>
           </div>
           <div class="footer">
             <div>
@@ -43,7 +54,7 @@
         </div>
         <div class="col-lg-5">
           <div class="signup col-lg-12">
-            <h2><b>Download Whitepaper: eCommerce Optimized</b></h2>
+            <h2><b>Download Yours Now</b></h2>
             <br>
             <div data-br-form-id={{formID}} class="br-native-form"></div>
           </div>
@@ -51,39 +62,35 @@
       </div>
     </div></script> <div id=content-placeholder></div> <script src=./misc/vendor.js></script> <script>//define content
   var context = {
-    opacity: .75,
+    opacity: .85,
     nav: [
-      { url: "http://www.syrinx.com/#contact", title: "CONTACT US" },
-      { url: "http://www.syrinx.com/#jobs", title: "JOBS" },
-      { url: "http://www.syrinx.com/#partners", title: "PARTNER" },
-      { url: "http://www.syrinx.com/#team", title: "TEAM" },
-      { url: "http://www.syrinx.com/#aboutus", title: "ABOUT US" },
-      { url: "http://www.syrinx.com/#recent-news", title: "BLOG" },
-      { url: "http://www.syrinx.com/#process", title: "PROCESS"},
-      { url: "http://www.syrinx.com/#clients", title: "CLIENTS"},
-      { url: "http://www.syrinx.com/#services", title: "SERVICES"},
+      /*{ url: "http://brightclaim.com/whitepapers/", title: "Whitepapers"},
+      { url: "http://brightclaim.com/leadership-team/", title: "Leadership Team"},
+      { url: "http://brightclaim.com/careers/", title: "Careers"},
+      { url: "http://brightclaim.com/", title: "Home" },*/
     ],
     social : [
-      //{url : "https://www.facebook.com/BrightClaim", title : "facebook"},
-      //{url : "https://twitter.com/brightclaim", title: "twitter"},
-      //{url : "https://plus.google.com/103735299933761094057/posts", title : "google-plus"},
-      //{url : "https://www.linkedin.com/company/brightclaim", title : "linkedin"},
+      /*{url : "https://www.facebook.com/BrightClaim", title : "facebook"},
+      {url : "https://twitter.com/brightclaim", title: "twitter"},
+      {url : "https://plus.google.com/103735299933761094057/posts", title : "google-plus"},
+      {url : "https://www.linkedin.com/company/brightclaim", title : "linkedin"},*/
     ],
-    logo : "./misc/syrinxlogo01.png",
-    cta : "./misc/SynrixECommerceWP.jpg",
+    logo : "./misc/IE-Logo-2012-small1.jpg",
+    cta : "./misc/InteractiveEdgeWP2CategoryMGMT.jpg",
     ctaAlignment: "right",
-    backgroundImage: "./misc/bluegreen.jpg",
+    backgroundImage: "./misc/categorymgmtBG2.jpg",
     backgroundPosition: "center",
     //blurb : "Download 8 Content Marketing Fails by filling out the form to the right!",
-    client : "Syrinx",
-    analyticsCode : 'UA-2459780-1',
-    host : "brafton.com",
-    clientURL : "http://syrinx.com/",
-    clientID : '1947',
-    formID : "169",
-    headline: "App Development for Retailers",
+    client : "Interactive Edge",
+    analyticsCode : 'UA-2456951-1',
+    host : "contentlead.com",
+    clientURL : "http://interactiveedge.com/",
+    clientID : '16001392',
+    formID : "170",
+    headline: "Free Whitepaper: Category Management Mastery: The key to growth!",
     summary : [
-      { paragraph : "Now that eCommerce is a necessity for retailers to succeed, the focus is turning to developing the best mobile platform to stay ahead of the competition. ECommerce is responsible for at least 8 percent of total sales, helping to drive up revenue and profits. With the right app capabilities, retailers of any size can see big results. There are plenty of features to consider when devising the best app solution, from omnichannel accessibility to payment and delivery options. Download our whitepaper, “ECommerce Optimized: App Development for Retailers,” to find out more about the creating a high-quality digital shopping experience." }
+      { paragraph : 'Category management is nothing new to retailers, but its place in effective strategy is certainly more important now than ever, thanks to the advances of big data and shopper empowerment, among others.'},
+      { paragraph : 'Learn how category management factors into growth by downloading our white paper, which demonstrates:'}
     ]
   };
   Handlebars.registerHelper('list', function(context, options) {
@@ -139,10 +146,4 @@
     compileHBS(context);
     $("body").css("background-image", "url("+context.backgroundImage+")");
     $("body").css("background-position", context.backgroundPosition);
-    $(".assetSummary").css("background", "rgba(255, 255, 255, "+context.opacity+")");</script> <script type=text/javascript>//<![CDATA[
-var DID=245563;
-var MyPageName = window.location.href.replace("http://",""); 
-var MySearch='SERVER SIDE VARIABLE HERE'; 
-var pssl=(window.location.protocol == "https:") ? "https://stats.sa-as.com/lib.js":"http://stats.sa-as.com/lib.js";
-document.writeln('<scr'+'ipt async src="'+pssl+'" type="text\/javascript"><\/scr'+'ipt>');
-//]]></script>  
+    $(".assetSummary").css("background", "rgba(255, 255, 255, "+context.opacity+")");</script>  

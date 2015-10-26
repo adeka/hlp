@@ -15,7 +15,7 @@
     background-size: 1920px 1080px;
     background-attachment: fixed;
     background-color: transparentize(desaturate(map-get($colors, accent), 20%), .4);
-    background-blend-mode: multiply;
+    /*background-blend-mode: multiply;*/
     color: #000;
     font-family: map-get($colors, fontFam);
   }
@@ -130,6 +130,7 @@
       @include grad($colors);
       border-top-left-radius: .3rem;
       border-top-right-radius: .3rem;
+      color:  map-get($colors, formTitleColor);
     }
     .pull-right {
       float: none !important;
