@@ -178,6 +178,25 @@ $interactiveedge: (
  formTitleColor: white
 );
 
+$alder: (
+ main: #FF8600,
+ accent: #00AA51,
+ lightColor: white,
+ darkColor: white,
+ textColor: #333333,
+ accentLight: #333333,
+ accentDark: #00AA51,
+ headerHeight: 6.5em,
+ navButtonPad: 2.2em,
+ navButtonFontWeight: bold,
+ imagePad: 0,
+ fontFam: 'Open Sans' Arial,
+ navButtonWidth: 130px,
+ imgMargin: .5em,
+ formTitleColor: white
+);
+
+
 #rapid-advance{
   @include LoadStyle($rapid-advance);
 }
@@ -216,4 +235,8 @@ $interactiveedge: (
 
 #interactiveedge{
    @include LoadStyle($interactiveedge);
+}
+
+#alder{
+   @include LoadStyle($alder);
 }
