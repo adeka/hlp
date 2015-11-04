@@ -178,9 +178,9 @@ $interactiveedge: (
  formTitleColor: white
 );
 
-$alder: (
- main: #FF8600,
- accent: #00AA51,
+$goodlife: (
+ main: #004B8D,
+ accent: #00B5CC,
  lightColor: white,
  darkColor: white,
  textColor: #333333,
@@ -237,6 +237,6 @@ $alder: (
    @include LoadStyle($interactiveedge);
 }
 
-#alder{
-   @include LoadStyle($alder);
+#goodlife{
+   @include LoadStyle($goodlife);
 }
