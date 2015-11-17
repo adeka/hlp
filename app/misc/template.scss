@@ -12,7 +12,7 @@
     padding: 0;
   }
   body{
-    background-size: 1920px 1080px;
+    background-size: map-get($colors, bgSize);
     background-attachment: fixed;
     background-color: transparentize(desaturate(map-get($colors, accent), 20%), .4);
     /*background-blend-mode: multiply;*/

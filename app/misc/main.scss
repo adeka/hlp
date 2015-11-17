@@ -18,7 +18,8 @@ $rapid-advance: (
   imagePad: 0,
   navButtonWidth: 130px,
   imgMargin: .5em,
- formTitleColor: auto
+ formTitleColor: auto,
+ bgSize: 1920px 1080px
 );
 
 $ccc: (
@@ -35,7 +36,8 @@ $ccc: (
   imagePad: 0,
   navButtonWidth: 130px,
   imgMargin: .5em,
- formTitleColor: auto
+ formTitleColor: auto,
+ bgSize: 1920px 1080px
 );
 
 $xceleration: (
@@ -52,7 +54,8 @@ $xceleration: (
   imagePad: 3em,
   navButtonWidth: 130px,
   imgMargin: .5em,
- formTitleColor: auto
+ formTitleColor: auto,
+ bgSize: 1920px 1080px
 );
 
 $digitus: (
@@ -69,7 +72,8 @@ $digitus: (
   imagePad: 0,
   navButtonWidth: 130px,
   imgMargin: .5em,
- formTitleColor: auto
+ formTitleColor: auto,
+ bgSize: 1920px 1080px
 );
 
 $castleford: (
@@ -86,7 +90,8 @@ $castleford: (
   imagePad: 0,
   navButtonWidth: 130px,
   imgMargin: .5em,
- formTitleColor: auto
+ formTitleColor: auto,
+ bgSize: 1920px 1080px
 );
 
 $brightclaim: (
@@ -104,7 +109,8 @@ $brightclaim: (
   fontFam: Rosario,
   navButtonWidth: 130px,
   imgMargin: .5em,
- formTitleColor: auto
+ formTitleColor: auto,
+ bgSize: 1920px 1080px
 );
 
 $syrinx: (
@@ -122,7 +128,8 @@ $syrinx: (
   logoWidth: 12em,
   navButtonWidth: 100px,
   imgMargin: 0,
- formTitleColor: auto
+ formTitleColor: auto,
+ bgSize: 1920px 1080px
 );
 
 $crowe: (
@@ -139,7 +146,8 @@ $crowe: (
   imagePad: 2em,
   navButtonWidth: 130px,
   imgMargin: .5em,
- formTitleColor: auto
+ formTitleColor: auto,
+ bgSize: 1920px 1080px
 );
 
 $totalsafety: (
@@ -157,7 +165,8 @@ $totalsafety: (
  fontFam: Rosario,
  navButtonWidth: 130px,
  imgMargin: .5em,
- formTitleColor: auto
+ formTitleColor: auto,
+ bgSize: 1920px 1080px
 );
 
 $interactiveedge: (
@@ -172,10 +181,11 @@ $interactiveedge: (
  navButtonPad: 2.2em,
  navButtonFontWeight: bold,
  imagePad: 0,
- fontFam: 'Roboto' Arial,
+ fontFam: Lato,
  navButtonWidth: 130px,
  imgMargin: .5em,
- formTitleColor: white
+ formTitleColor: white,
+ bgSize: 1920px 1080px
 );
 
 $goodlife: (
@@ -184,16 +194,17 @@ $goodlife: (
  lightColor: white,
  darkColor: white,
  textColor: #333333,
- accentLight: #333333,
- accentDark: #00AA51,
- headerHeight: 6.5em,
- navButtonPad: 2.2em,
+ accentLight: white,
+ accentDark: #004B8D,
+ headerHeight: 8.8em,
+ navButtonPad: 3.7em,
  navButtonFontWeight: bold,
  imagePad: 0,
  fontFam: 'Open Sans' Arial,
  navButtonWidth: 130px,
  imgMargin: .5em,
- formTitleColor: white
+ formTitleColor: white,
+ bgSize: auto
 );
 
 
