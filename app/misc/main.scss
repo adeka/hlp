@@ -207,6 +207,43 @@ $goodlife: (
  bgSize: auto
 );
 
+$vrp: (
+ accent: #E77D06,
+  main: #E77D06,
+  lightColor: white,
+  darkColor: white,
+  textColor: #333,
+  accentLight: white,
+  accentDark: #000190,
+  headerHeight: 6em,
+  navButtonPad: 2.2em,
+  navButtonFontWeight: bold,
+  imagePad: 0,
+  fontFam: Arial,
+  navButtonWidth: 130px,
+  imgMargin: .5em,
+  bgSize: 1920px 1080px,
+ formTitleColor: auto,
+);
+
+$effectivedata: (
+ accent: #98042D,
+  main: #c20d3f,
+  lightColor: white,
+  darkColor: white,
+  textColor: #333,
+  accentLight: white,
+  accentDark: #000190,
+  headerHeight: 6em,
+  navButtonPad: 2.2em,
+  navButtonFontWeight: bold,
+  imagePad: 0,
+  fontFam: Arial,
+  navButtonWidth: 130px,
+  imgMargin: .5em,
+  bgSize: 1920px 1080px,
+ formTitleColor: auto,
+);
 
 #rapid-advance{
   @include LoadStyle($rapid-advance);
@@ -250,4 +287,12 @@ $goodlife: (
 
 #goodlife{
    @include LoadStyle($goodlife);
+}
+
+#vrp{
+   @include LoadStyle($vrp);
+}
+
+#effectivedata {
+  @include LoadStyle($effectivedata);
 }
